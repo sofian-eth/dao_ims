@@ -1,0 +1,194 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Recipt</title>
+</head>
+<style>
+    @font-face{
+  font-family: "poppin-sb";  
+  src: url("http://localhost:8080/Poppins-Bold.ttf") format("truetype");
+}
+    @font-face{
+  font-family: "poppin-b";  
+  src: url("http://localhost:8080/Poppins-SemiBold.ttf") format("truetype");
+}
+    @font-face{
+  font-family: "poppin-m";  
+  src: url("http://localhost:8080/Poppins-Medium.ttf") format("truetype");
+}
+    @font-face{
+  font-family: "poppin-r";  
+  src: url("http://localhost:8080/Poppins-Regular.ttf") format("truetype");
+}
+ul li{
+    padding-bottom: 5px;
+}
+/* thead tr td{ */
+    /* background-color: green; */
+    /* padding:12 12 12 12 */
+/* } */
+</style>
+<body >
+    <!-- width: 29.7cm;height: 21cm; -->
+    <!-- width: 595px;height: 842px; -->
+    <div style="width: 795px;height: 1542px;">
+
+        <div>
+            <img src="http://localhost:8080/dao-proptect-logo.png" style="display: inline-block;padding-top: 40px;padding-left: 40px;" alt="">
+            <img src="http://localhost:8080/bloc2.png" style="display: inline-block;float: right;width: 160px;height: 160px;" alt="">
+        </div>
+        <div style="padding-top: 0px;padding-left: 40px;padding-right: 10px;">
+            <p style="text-transform: capitalize;color: #000099;font-size: 37px;display: inline-block;font-family: poppin-sb">
+                AREA PLEDGE  
+            </p>
+            <img src="http://localhost:8080/bloc.png" style="display: inline-block;float: right;width: 80px;margin-top: 40px;margin-right: 45px;" alt="">
+          </div>
+            <div style="display: inline-block;float: left;padding-left: 40px;padding-right: 10px;margin-top: -40px;line-height: 1;">
+                <p style="color:3f3f3f;font-size: 16px;font-family: poppin-r;">
+                    MEMBERSHIP ID : <span style="font-family: poppin-sb;">{{daoID}}</span> 
+                </p>
+            <p style="color:3f3f3f;font-size: 16px;font-family: poppin-r;">
+                TICKET NO : <span style="font-family: poppin-sb;">{{ticketNo}}</span> 
+            </p>
+            <p style="color:3f3f3f;font-size: 16px;font-family: poppin-r;">
+                STATUS: <span style="background-color: #72BB52;padding: 5px;border-radius: 2px;font-family: poppin-sb;color: white;">{{status}}</span>  
+            </p>
+            <p style="color:3f3f3f;font-size: 16px;padding-top: 10px;font-family: poppin-sb;">
+                <b>
+                    DUE DATE : {{dueDate}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </b>
+            </p>
+        </div>
+        <div style="display: inline-block;float: right;padding-left: 40px;padding-right: 10px;">
+            <img src="http://localhost:8080/dots.png" style="width: 100px;height: 100px;margin-right: -20px;margin-top: -60px;" alt="">
+        </div>
+        <div style="padding-left: 40px;padding-right: 10px;">
+
+            <table style="margin-left: -25px;border-spacing: 25px;">
+                <thead>
+                    <tr style="color: #000099;font-size: 15px;font-family: poppin-sb;">
+                        <td>Sr.No</td>
+                        <td>Project Name</td>
+                        <td>Area Pledged</td>
+                        <td>Round Detail</td>
+                        <td>Amount</td>
+                    </tr>
+                </thead>
+                <tbody style="font-family: poppin-m;">
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{projectName}}</td>
+                        <td>{{areaPledged}}</td>
+                        <td>{{round}} @ PKR {{sqftPrice}}/sq.ft.</td>
+                        <td>PKR {{amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="padding-left: 40px;padding-right: 30px;">
+            <hr>
+            <div style="display: inline-block;font-family: poppin-r;font-size: 16px;color: black;">
+                <p style="font-family: poppin-sb;color: #000099;font-size: 16px;">Document Required:</p>
+                <ul style="padding-left: 20px;margin-top: -10px;">
+                    <li>2 Passport size photographs</li>
+                    <li>2 Copies on CNIC or Passport</li>
+                    <li>Proof of payment</li>
+                </ul>
+            </div>
+            <div style="display: inline-block;float: right;font-family: poppin-r;font-size: 16px;color: black;">
+                <p style="font-family: poppin-sb;color: #000099;font-size: 16px;">Your dedicated Sales Representative:</p>
+                <ul style="padding-left: 15px;margin-top: -10px;">
+                    <li>Name: {{name}}</li>
+                    <li>Contact No: {{contactNo}}</li>
+                    <li>Email: {{email}}</li>
+                </ul>
+            </div>
+            <hr>
+            <div style="background-color: #BBF6F2;">
+            <div style="display: inline-block;padding-top: 20px;padding-left: 20px;padding-bottom: -40px;">
+                <p style="font-family: poppin-sb;font-size: 16px;color: #000099;">
+                    Payment Info
+                </p>
+                <!-- <div style="line-height: 0.5;">
+                    <p style="color:#3f3f3f;font-size: 15px;font-family: poppin-sb;">
+                        {{bankName}}
+                    </p>
+                    <p style="color:#3f3f3f;font-size: 15px;font-family: poppin-r;">
+                      Account: <span style="font-family: poppin-sb;">{{bankName}}</span> 
+                    </p>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                      Branch: <span style="font-family: poppin-sb;">{{branch}}</span> 
+                    </p>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                      A/C number: <span style="font-family: poppin-sb;">{{acno}}</span> 
+                    </p>
+                </div> -->
+                {{#each paymentInfo.bankInfo}}
+                <div style="line-height: 0.5;padding-bottom: 10px;">
+                    <p style="color:#3f3f3f;font-size: 15px;font-family: poppin-sb;">
+                        {{bankName}}
+                    </p>
+                    <p style="color:#3f3f3f;font-size: 15px;font-family: poppin-r;">
+                      Account: <span style="font-family: poppin-sb;">{{bankName}}</span> 
+                    </p>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                      Branch: <span style="font-family: poppin-sb;">{{branch}}</span> 
+                    </p>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                      A/C number: <span style="font-family: poppin-sb;">{{acno}}</span> 
+                    </p>
+                </div>
+                {{/each}}
+            </div>
+            <div style="display: inline-block;float: right;padding-left: 20px;">
+                <div style="padding-right: 30px;padding-top: 60px;line-height: 0.5;">
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                        Subtotal:  <span style="color:#000099;font-size: 15px;font-family: poppin-sb;">{{subTotal}}</span>
+                    </p>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                        Advance Tax:  <span style="color:#000099;font-size: 15px;font-family: poppin-sb;">{{advanceTax}}</span>
+                    </p>
+                    <hr>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                        Total:  <span style="color:#000099;font-size: 15px;font-family: poppin-sb;">{{total}}</span>
+                    </p>
+                </div>
+                <div style="padding-top: 50px;padding-right: 30px;line-height: 0.5;">
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                        Amount paid:  <span style="color:#000099;font-size: 15px;font-family: poppin-sb;">{{amountPaid}}</span>
+                    </p>
+                    <p style="color:3f3f3f;font-size: 15px;font-family: poppin-r;">
+                        Balance:  <span style="color:#000099;font-size: 15px;font-family: poppin-sb;">{{balance}}</span>
+                    </p>
+                </div>
+            </div>
+            <p style="font-size:11px;font-family: poppin-r;color: #3f3f3f;padding-right: 50px;padding-left: 20px;padding-bottom: 20px;">
+                DAO PROPTECH is a registered company with the Securities and Exchange Commission of Pakistan and a certified 
+                member of Pakistan Software Houses Association for IT & ITeS (P@SHA).  
+            </p>
+        </div>
+            <div style="font-size: 15px;font-family: poppin-m;color: #3f3f3f;display: inline-block;line-height: 1;">
+                <p>
+                    <img style="width: 20px;height: 15px;padding-top: 5px;padding-left: 5px;" src="http://localhost:8080/fb.svg" alt="">/DAOPropTech &emsp;<span><img style="width: 15px;height: 15px;padding-top: 5px;padding-left: 5px;" src="http://localhost:8080/twitter.svg" alt="">/daoproptech</span>
+                </p>
+                <p >
+                    <img style="width: 20px;height: 15px;padding-top: 5px;padding-left: 5px;" src="http://localhost:8080/instagram.svg" alt="">/dao_propTech &emsp;<span><img style="width: 15px;height: 15px;padding-top: 5px;padding-left: 5px;" src="http://localhost:8080/linkedin.svg" alt="">/company/daoproptech</span>
+                </p>
+                
+            </div>
+            <div style="font-size: 15px;font-family: poppin-m;color: #3f3f3f;display: inline-block;float: right;line-height: 1;">
+                <p >
+                    <img style="width: 15px;height: 15px;padding-top: 5px;" src="http://localhost:8080/phone.svg" alt=""><span>+92 314 326 7767</span>
+                </p>
+                <p > 
+                    <img style="width: 15px;height: 15px;padding-top: 5px;" src="http://localhost:8080/globe.svg" alt=""><span>daoproptech.com</span>
+                </p>
+            </div>
+        </div>
+        <img src="http://localhost:8080/line.png" style="height: 38px;padding-left: 40px;" alt="">
+        <!-- </div> -->
+    </div>
+</body>
+</html>

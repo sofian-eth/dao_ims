@@ -1,0 +1,25 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^5.3.0",
+    "aws-sdk": "^2.879.0",
+    "dotenv": "^8.2.0",
+    "google-libphonenumber": "^3.2.22",
+    "knex": "^0.21.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "6.6.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}

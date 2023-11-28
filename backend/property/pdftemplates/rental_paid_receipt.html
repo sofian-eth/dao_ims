@@ -1,0 +1,561 @@
+<html> 
+  <head>
+    <title>Rental Receipt</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+     @page  {
+        margin:20px 0 0px 0;
+        size: letter; /*or width x height 150mm 50mm*/
+        }
+        h1, h2, h3, h4,h5,h6,p,ol,ul{
+            padding:0;
+            margin:0;
+        }
+        *{
+            padding:0;
+            margin:0;
+        }
+       
+        body{
+            font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: rgb(33, 37, 41);
+        text-align: left;
+        color: #27272e;
+        margin: 0;
+      }
+      table tr,div {page-break-inside: avoid}
+      table{    border-collapse: collapse;display: table;  font-family: 'Poppins', sans-serif;  border-spacing: 2px;font-size: 14px;color: #27272e;}
+
+   hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid #0000001a;
+   }
+   .clr-blue{
+        color:#023958
+   }
+   .clr-gray{
+       color:#707A8A
+   }
+   h2{ 
+       font-size: 24px;
+       font-weight: normal;
+       line-height: 30px;
+       margin-bottom:5px;
+       padding:0;
+            margin:0;
+    }
+    h5{
+        font-size:18px;
+       font-weight: normal;
+       line-height: 30px;
+       margin-bottom:5px;
+       padding:0;
+            margin:0;
+   }
+   h6{
+        font-size:18px;
+       font-weight: normal;
+       line-height: 30px;
+       margin-bottom:5px;
+       padding:0;
+            margin:0;
+   }
+   p{
+       font-size:14px;
+       font-weight: normal;
+       margin:0;
+       padding: 0;
+   }
+   .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529
+    }
+
+    .table td,.table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6
+    }
+
+    .table tbody+tbody {
+        border-top: 2px solid #dee2e6
+    }
+    .tbl_basic {
+        margin-bottom: 0;
+        font-family: 'Inter', sans-serif;
+        width: 100%;
+    }
+
+    .tbl_basic td,.tbl_basic th {
+        vertical-align: middle!important;
+        border: none!important
+    }
+
+    .tbl_basic thead tr {
+        height: 52px;
+        border: none;
+        background: #eff5ff
+    }
+
+    .tbl_basic thead tr th {
+        border: none;
+        font-size: 12px;
+        font-family: 'Inter', sans-serif;
+        color: #718096;
+        padding: 10px;
+        text-transform: uppercase
+    }
+    .tbl_basic tbody tr {
+        height: 52px;
+        border-bottom: 1px solid #edf2f7
+    }
+
+    .tbl_basic tbody tr:hover {
+        box-shadow: inset 4px 0 0 0 #4c6fff
+    }
+
+    .tbl_basic tbody tr:last-of-type {
+        border-bottom: none
+    }
+
+    .tbl_basic tbody tr td {
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+                color: #023958;
+        padding: 10px
+    }
+    .tbl_basic tbody tr td .td-bold {
+        font-family: 'Inter', sans-serif;
+        color: #4a5568;
+    }
+    .tbl_basic tbody tr:hover {
+        background: #edf2f7
+    }
+    .align-items-center {
+        align-items: center!important;
+    }
+
+    .d-flex {
+        display: flex!important;
+    }
+    .gap-5{
+        grid-gap: 5px !important;
+    gap: 5px !important;
+
+    }
+    .gap-10 {
+    grid-gap: 10px !important;
+    gap: 10px !important;
+}
+    .img-container {
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        background-size: cover!important;
+        background-position: 50%!important;
+    }
+    .img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+    .img-container.s-30 {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+    }
+    .img-container.s-48 {
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
+    }
+    .fs-8 {
+    font-size: 8px!important
+}
+
+.fs-10 {
+    font-size: 10px!important
+}
+
+.fs-12 {
+    font-size: 12px!important
+}
+
+.fs-14 {
+    font-size: 14px!important
+}
+
+.fs-16 {
+    font-size: 16px!important
+}
+
+.fs-18 {
+    font-size: 18px!important
+}
+
+.fs-20 {
+    font-size: 20px!important
+}
+
+.fs-24 {
+    font-size: 24px!important
+}
+
+.fs-26 {
+    font-size: 26px!important
+}
+
+.fs-28 {
+    font-size: 28px!important
+}
+.fs-32 {
+    font-size: 32px!important
+}
+.fs-50 {
+    font-size: 50px!important
+}
+.mr-2,.mx-2 {
+    margin-right: .5rem!important
+}
+.mb-2, .my-2 {
+    margin-bottom: 0.5rem!important;
+}
+.const {
+    color: #718096;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 4px;
+}
+.text {
+    color: #425466;
+    font-family: 'Inter', sans-serif;;
+    margin-bottom: 0;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.striped-tbl thead tr{
+    background-color: white;
+}
+.striped-tbl tbody tr:nth-child(odd) {
+    background-color: #F5F6F9;
+    box-shadow: 0 0 0 1px #ededed;
+    border-radius: 8px;
+}
+.striped-tbl tbody tr:nth-child(even){
+    border-bottom: 1px solid #ededed;
+}
+.img-container.rounded-img {
+    border-radius: 50px!important;
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid #0000001a;
+}
+.text-danger {
+    color: #dc3545!important;
+}
+.text-success {
+    color: #28a745!important;
+}
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 2px 15px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;;
+    height: 24px;
+}
+.pill-success-light {
+    background: #0ECB81;
+    background: #0ECB81;
+    color: #fff;
+}
+.pill-danger {
+    background: #DC143C;
+    color: #fff;
+}
+
+
+   </style>
+  </head>
+
+  <body> 
+   <!----- TEMPLATE 1 ----->
+   <table style="width: 100%; margin: 0 auto;color: #425466;background-color: white; border: none; font-family: 'Poppins', sans-serif;">
+        <tbody>
+            <tr>
+                <td style="text-align: center;padding-top: 50px;">
+                    <h2 class="clr-blue">Rental Receipt</h2>
+                    <h5 class="clr-gray">Payout # {{ payoutNumber }}</h5>
+                    <p class="clr-gray fs-16">{{ startDuration }} – {{ endDuration }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:20px 0px 20px 20px; margin-bottom: 40px;">
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: top; width: 45%;">
+                                    <h2 class="clr-blue">{{ holderName }}</h2>
+                                    <p class="fs-16 clr-gray">MEMBERSHIP ID {{ membershipNumber }}</p>
+                                    <p class="fs-16 clr-gray " style="margin-top: 10px;">NOTE</p>
+                                    <p class="fs-16 text-success">We’ve made the payment in full.</p>
+                                </td>
+                                <td style="vertical-align: top; width: 45%;">
+                                    <table style="width: 100%;">
+                                        <tbody>
+                                             <tr>
+                                                 <td style="padding:5px;"><p class="text">RENTAL AMOUNT</p></td>
+                                                 <td style="padding:5px;"><p class="text text-right text-success">{{ rentalAmount }}<span class="const">PKR</span></p></td>
+                                             </tr>
+                                             <tr>
+                                                <td style="padding:5px;"><p class="text">DISBURSEMENT DATE</p></td>
+                                                <td class=" text-right" style="padding:5px;"><p class="text text-right">{{ disbursementDate }}</p>
+                                                    <!-- <span class="fs-12 clr-gray">1st Quarter</span> -->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5px;"><p class="text">STATUS</p></td>
+                                                <td style="padding:5px;" class=" text-right"><div class="pill pill-success-light  text-right">  {{ status }} </div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td style=" width:10%; text-align: right;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="80" viewBox="0 0 52 129">
+                                                <g id="Group_27897" data-name="Group 27897" transform="translate(-1127 -239)">
+                                                <circle id="Ellipse_1440" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1127 239)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-2" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1151 239)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-3" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1175 239)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-4" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1127 264)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-5" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1151 264)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-6" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1175 264)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-7" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1127 289)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-8" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1151 289)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-9" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1175 289)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-10" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1127 314)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-11" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1151 314)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-12" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1175 314)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-13" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1127 339)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-14" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1151 339)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-15" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1175 339)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-16" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1127 364)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-17" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1151 364)" fill="#0017c1"/>
+                                                <circle id="Ellipse_1440-18" data-name="Ellipse 1440" cx="2" cy="2" r="2" transform="translate(1175 364)" fill="#0017c1"/>
+                                                </g>
+                                            </svg>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:20px;"><h6 class="clr-gray">RENTAL DETAILS</h6></td>
+            </tr>
+            <tr>
+                <td style="padding:0px 20px 20px 20px;">
+                    <table class="tbl_basic" style="background-color: #FCFEFE;border:0;width: 100%;    box-shadow: 0 0 0 1px #ededed;border-radius: 8px; " >
+                        <tbody>
+                            <tr>
+                                <td style="border-right:1px solid #D7DBEC ;">
+                                    <div class="d-flex align-items-center">
+                                        <div  class="img-container s-30 mr-2">
+                                            <img  src="{{ rentalDetails.propertyLogo }}">
+                                        </div>
+                                        <span  class="td-bold fs-18">{{ rentalDetails.propertySymbol }}</span></div>
+                                </td>
+                                <td style="border-right:1px solid #D7DBEC ;">
+                                    <p class="clr-blue mb-2">Area Own</p>
+                                    <p class="fs-18">{{ rentalDetails.areaOwn }} <span class="const">Sq. ft.</span></p>
+                                </td>
+                                <td style="border-right:1px solid #D7DBEC ;">
+                                    <p class="clr-blue mb-2">Current Rate</p>
+                                    <p class="fs-18">{{ rentalDetails.currentRate }} <span class="const">PKR/sq. ft.</span></p>
+                                </td>
+                                <td style="border-right:1px solid #D7DBEC ;">
+                                    <p class="clr-blue mb-2">Disbursement</p>
+                                    <p class="fs-18">{{ rentalDetails.disbursement }}</p>
+                                </td>
+                                <td >
+                                    <p class="clr-blue mb-2">Total Amount</p>
+                                    <p class="fs-18">{{ rentalDetails.totalAmount }}<span class="const">PKR</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:20px;padding-top: 10px;"><h6 class="clr-gray">PAYMENT DETAILS</h6></td>
+            </tr>
+            <tr>
+                <td style="padding:0 20px 20px 20px;">
+                    <table class="" style="background-color: #FCFEFE;box-shadow: 0 0 0 1px #ededed;border-radius: 8px; width: 100%;">
+                         <tr>
+                             <td style="padding: 20px;vertical-align: top;">
+                                 <h6 class="clr-blue" style=" margin-bottom:10px">Bank Accounts</h6>
+                                 <table class="" style="background-color: #fff;box-shadow: 0 0 0 1px #D7DBEC;border-radius: 8px;width: 100%;">
+                                        <tr>
+                                            <td style="padding:  20px 20px 0px 20px;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="img-container s-30 mr-2 rounded-img">
+                                                        <img alt="" src="{{ domain_url }}/{{ bankInfo.bankLogo }}">
+                                                    </div>
+                                                    <div>
+                                                        <span class="clr-gray fs-14">{{ bankInfo.bankName }}</span>
+                                                         <p class="text">{{ bankInfo.iban }}</p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                       
+                                        <td style="padding: 0px 20px 0px 20px;">
+                                            <p class="text"><span class="clr-gray">Account Title</span> {{ bankInfo.accountTitle }}</p>
+                                        </td>
+                                    </tr>
+                                    {{#notNull  bankInfo.branch null}}
+                                    <tr>
+                                       
+                                        <td style="padding:  10px 20px 20px 20px;">
+                                            <p class="text"><span class="clr-gray">Branch</span> {{ bankInfo.branch }} </p>
+                                        </td>
+                                    </tr>
+                                    {{/notNull}}
+                                 </table>
+                             </td>
+                             <td style="padding: 20px;vertical-align: top;">
+                                <h6 class="clr-blue"  style=" margin-bottom:10px">Rental Amount Breakdown</h6>
+                                <table style="width: 100%;">
+                                    <tbody>
+                                         <tr>
+                                             <td style="padding: 10px 5px;"><p class="text">Rental Amount</p></td>
+                                             <td style="padding: 10px 5px;"><p class="text text-right">{{ rentalAmount }}<span class="const">PKR</span></p></td>
+                                         </tr>
+                                        <tr>
+                                           <td style="padding: 10px 5px;"><p class="text">Tax Deduction ({{ rentalAmountBreakDown.taxDeductionPercentage }}%)</p></td>
+                                           <td style="padding: 10px 5px;"><p  class="text text-danger text-right">-{{ rentalAmountBreakDown.taxDeduction }}<span class="const">PKR</span></p></td>
+                                       </tr>
+                                       <tr>
+                                             <td colspan="2"><hr></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 5px;"><p class="text">Amount to be Paid</p></td>
+                                            <td style="padding: 10px 5px;"><p class="fs-18 text text-success text-right">{{ rentalAmountBreakDown.rentToPay }}<span class="const">PKR</span></p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                         </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:0 20px 20px 20px;">
+                    <hr>
+                    <p class="clr-blue">Have a question or need further clarification?</p>
+                    <p class="clr-gray">Feel free to talk to your dedicated sales representative</p>
+                    <table style="width:100%; margin-top: 40px;">
+                         <tr>
+                            <td style="width:33%">
+                                <div class="d-flex gap-5">
+                                    <img alt="" src="{{ domain_url }}/sales-agent.svg"  style="height: 50px;">
+                                    <div>
+                                         <p class="clr-gray">SALES AGENT</p>
+                                         <p>Haseeb Mirza</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:33%">
+                                <div class="d-flex gap-5">
+                                    <img alt="" src="{{ domain_url }}/phone-round.svg"  style="height: 50px;">
+                                    <div>
+                                         <p class="clr-gray">PHONE NUMBER</p>
+                                         <p>+92 300 1234567 </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:33%">
+                                <div class="d-flex gap-5">
+                                    <img alt="" src="{{ domain_url }}/email-round.svg" style="height: 50px;">
+                                    <div>
+                                         <p class="clr-gray">EMAIL</p>
+                                         <p>haseeb@daoproptech.com</p>
+                                    </div>
+                                </div>
+                            </td>
+
+                         </tr>
+                    </table>
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:0 20px 20px 20px;">
+                    <table style="width:100% ;">
+                         <tr>
+                             <td style="width:85%">
+                                 Follow Us<br>
+                                 <div class="d-flex gap-10 mb-3 mt-2">
+                                    <a class="d-flex gap-5"  style=" color:black; text-decoration: none;"  target="_blank"  href="https://www.facebook.com/DAOPropTech/">
+                                        <img src="{{ domain_url }}/facebook.png" style="height: 14px;"><span>DAOPropTech</span>
+                                    </a>
+                                    <a class="d-flex gap-5"  style="color:black; text-decoration: none;"  target="_blank"  href="https://www.linkedin.com/company/daoproptech/mycompany/">
+                                        <img src="{{ domain_url }}/linkedin.png" style="height: 14px;"><span>daoproptech</span>
+                                    </a>
+                                 </div>
+                                 <div class="d-flex gap-10">
+                                    <a class="d-flex gap-5"  style=" color:black; text-decoration: none;"  target="_blank"  href="https://www.instagram.com/dao_proptech/?hl=en">
+                                        <img src="{{ domain_url }}/instagram.png" style="height: 14px;"><span>dao_proptech</span>
+                                    </a>
+                                    <a class="d-flex gap-5"  style="color:black; text-decoration: none;"  target="_blank"  href="https://www.youtube.com/c/daoproptech">
+                                        <img src="{{ domain_url }}/youtube.png" style="height: 14px;"><span>c/daoproptech</span>
+                                    </a>
+                                 </div>
+                                 
+                             </td>
+                             <td>
+                                We’re here to help<br>
+                                <div class="d-flex gap-5" style="">
+                                    <img src="{{ domain_url }}/mobile.png" style="height: 14px;"><span>+92 314 326 7767</span>
+                                    </div>
+                                    <a class="d-flex gap-5"  style="color:black; text-decoration: none;"  target="_blank"  href="https://daoproptech.com/">
+                                        <img src="{{ domain_url }}/globe.png" style="height: 14px;"><span>daoproptech.com</span>
+                                    </a>
+                                 </div>
+                             </td>
+                         </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+  </body>
+</html>

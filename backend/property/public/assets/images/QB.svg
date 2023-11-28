@@ -1,0 +1,9 @@
+<svg id="QB" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <path id="Path_17085" data-name="Path 17085" d="M4,0H28a4,4,0,0,1,4,4V28a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" fill="#69be94"/>
+  <g id="Group_24110" data-name="Group 24110" transform="translate(7.26 7.204)">
+    <path id="Path_17089" data-name="Path 17089" d="M0,0H11.128V4.451H0Z" transform="translate(0 0)" fill="#fff"/>
+    <path id="Path_17088" data-name="Path 17088" d="M0,0H17.8V4.451H0Z" transform="translate(0 6.677)" fill="#4a4a4a"/>
+    <path id="Path_17087" data-name="Path 17087" d="M0,0H17.8V4.451H0Z" transform="translate(0 13.353)" fill="#4a4a4a"/>
+    <path id="Path_17086" data-name="Path 17086" d="M0,0H4.451V4.451H0Z" transform="translate(13.353 0)" fill="#fff"/>
+  </g>
+</svg>

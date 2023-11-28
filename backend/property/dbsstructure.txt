@@ -1,0 +1,8 @@
+
+record_id
+transaction id
+transation url
+operation 
+from 
+to
+amount

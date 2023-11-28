@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+         @page  {
+        margin:20px 0 0px 0;
+        size: letter; /*or width x height 150mm 50mm*/
+        /* content: element(footer)  */
+        }
+        @media print{
+        
+        body {
+            /* font-family: 'Inter', sans-serif; */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+
+
+        .new-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            height: 24px;
+            border: 1px solid transparent;
+            padding: 0px 8px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .new-pill.pill-warning {
+            background: #FFDFCE;
+            border-color: #FFDFCE;
+            color: #C46300;
+        }
+
+        .new-pill.pill-secondary {
+            background: #DCDDF7;
+            border-color: #DCDDF7;
+            color: #023958;
+        }
+        .tbl_basic {
+	 margin-bottom: 0;
+     border-collapse: collapse;
+     width: 100%;
+}
+ .tbl_basic th, .tbl_basic td {
+	 vertical-align: middle !important;
+	 border: none !important;
+	 padding: 0 10px !important;
+     text-align: left;
+}
+ .tbl_basic thead tr {
+	 height: 45px !important;
+	 border-bottom: 1px solid #d7dbec;
+}
+ .tbl_basic thead tr th {
+	 border: none;
+     font-size: 14px;
+     color: #707A8A;
+     font-weight: unset;
+     font-weight: 500;
+}
+ .tbl_basic thead tr th span {
+	 font-size: 12px;
+}
+ .tbl_basic thead.th-uppercase {
+	 text-transform: uppercase;
+}
+ .tbl_basic thead.th-uppercase + tbody .mbl-th {
+	 text-transform: uppercase;
+}
+ .tbl_basic tbody tr {
+	 height: 50px;
+}
+.tbl_basic tbody tr:nth-child(odd){
+    background: #F5F6F9
+}
+ .tbl_basic tbody tr:not(:last-of-type) {
+	 border-bottom: 1px solid #d7dbec;
+}
+ .tbl_basic tbody tr td {
+	 font-size: 16px;
+	 color: #131523;
+}
+ .tbl_basic tbody tr td .value {
+	 font-size: 14px;
+	 color: #131523;
+}
+ .tbl_basic tbody tr td .const {
+	 font-size: 12px;
+	 color: #707a8a;
+	 margin-left: 3px;
+}
+ .tbl_basic tbody tr:hover {
+	 background: #eeeff8;
+}
+.disclaimer{
+  padding: 0;
+  margin: 0;
+  color: #1C1C1C;
+  padding-left: 20px;
+ 
+}
+.disclaimer li{
+    margin-bottom: 10px;
+}
+.disclaimer li::marker{
+    color: #1C1C1C;
+    font-size: 14px;
+  }
+  .investment-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+.investment-breakdown > div {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.investment-breakdown > div:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.investment-breakdown > div:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+.investment-breakdown > div p:last-of-type {
+  flex-grow: 1;
+  text-align: right;
+}
+.investment-breakdown .UD {
+  background: #9B4B1B;
+}
+.investment-breakdown .ER {
+  background: #1C5860;
+}
+.investment-breakdown .QB {
+  background: #69BE94;
+}
+.text-white{
+    color: #fff;
+}
+.fs-16{
+font-size: 16px;
+}
+.multi-prop-details.investment-overview .mpd-items .mpd-item {
+	 flex-grow: 1;
+	 padding: 15px;
+}
+ .multi-prop-details.investment-overview .mpd-items .mpd-item:nth-child(even) {
+	 background: #f5f6f9;
+}
+.investment-overview {
+    border: 1px solid #d7dbec;
+    border-radius: 5px;
+}
+.investment-overview .mpd-items{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.investment-overview .mpd-items .mpd-item{
+    flex-grow: 1;
+}
+div#footer {
+     display: block; text-align: center;
+   
+    position: fixed;
+      width: 100%;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+   
+}
+div#footer img{
+    height: 26px;
+        border: 0;
+      padding-top: 10px;
+   
+}
+
+}
+    </style>
+</head>
+
+<body>
+    <table style="width: 100%;padding:20px">
+        <tbody>
+            <tr>
+                <td style="padding-bottom: 40px;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <img src="{{site_url}}/DAO-proptech-logo.svg" alt="">  
+                    
+                        <img src="{{site_url}}/graphic-1.svg" alt="">  
+                      </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px; text-align: center">
+                        <!-- <p style="color:#707A8A">Report ID: <span style="color: #131523;font-weight: 500;">12345</span></p> -->
+                        <p style="color: #023958;font-size: 25px;font-weight: 600;">Rental Report</p>
+                        <p style="color:#707A8A">Duration: <span style="font-size: 16px;color:#131523;font-weight: 500;">{{startDate}}-{{endDate}}</span></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="margin-bottom: 50px;">
+                        <tr>
+                            <td style="width: 65%;"><div style="font-size: 16px;color: #313844;font-weight: 500;"><p style=" color:#707A8A;font-size: 16px; width: 150px;display: inline-block;">CUSTOMER NAME:</p>&nbsp;{{ holderInfo.userName }}</div></td>
+                            <td><div style="font-size: 16px;color: #313844;font-weight: 500;"><p style=" color:#707A8A;font-size: 16px; width: 100px;display: inline-block;">PHONE:</p>&nbsp;{{ holderInfo.phone }}</div></td>
+                        </tr>
+                        <tr>
+                            <td  style="width: 65%;"><div style="font-size: 16px;color: #313844;font-weight: 500;"><p style=" color:#707A8A;font-size: 16px;  width: 150px;display: inline-block;">CUSTOMER ID:</p>&nbsp;{{ holderInfo.daoID }}</div></td>
+                            <td><div style="font-size: 16px;color: #313844;font-weight: 500;"><p style=" color:#707A8A;font-size: 16px; width: 100px;display: inline-block;">EMAIL:</p>&nbsp;{{  holderInfo.email }}</div></td>
+                        </tr>
+                    </table>
+                            
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px">
+                        <p style="color: #131523;font-weight: 600;font-size: 18px; margin-bottom: 5px;text-align: left;margin-bottom: 10px;">Summary</p>
+                        <table class="table tbl_basic mb-3 text-nowrap" style="margin-bottom: 20px; border-bottom: 1px solid #d7dbec;">
+                            <thead>
+                                <tr>
+                                    <th>PAYOUT NO</th>                                    
+                                    <th>PAYOUT DATE </th>
+                                    <th>PAYOUT CYCLE</th>
+                                    <th>RENTAL RATE</th>                                    
+                                    <th>TAX </th>
+                                    <th>AMOUNT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each rentalSummary}}
+                                <tr>
+                                    <!-- <td><i class="fas fa-check-circle" style="color:#65D3C7;font-size: 12px;"></i> 6th</td>            -->
+                                    <td>{{ this.payoutNumber  }}</td>
+                                    <td>{{ this.payoutDate }}</td>
+                                    <td>{{ this.payoutCycle }}</td>
+                                    <td>{{ this.rentalRate }}<span class="const">PKR/Sq. ft.</span></td>
+                                    <td>{{  this.tax }} <span class="const">PKR</span></td>
+                                    <td>{{  this.amount }} <span class="const">PKR</span></td>
+                                </tr>
+                                {{/each}}
+                                <tr>
+                                    <td colspan="5">Total</td>           
+                                    <td><span style="color:#0A955E; font-size: 18px;font-weight: 500;">{{ totalAmount  }}</span>PKR</td>
+                                </tr>
+                             
+                            </tbody>
+                        </table>
+
+                    </div>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px;margin-top: 30px;">
+                        <p style="color: #131523;font-weight: 600;font-size: 18px; margin-bottom: 5px;">DISCLAIMER</p>
+                        <div class="" style="background: #F5F6F9;padding: 15px; margin-bottom: 20px;border:1px solid #D7DBEC;border-radius: 8px;">
+                            <ol class="disclaimer px-3">
+                                <li><p class="text clr-raven">The transaction(s) above have occurred between the project(s) and the investor. DAO Proptech is a platform partner and does not own the project(s) above.</p></li>
+                                <li><p class="text clr-raven">The statement does not constitute a legal document. For establishing ownership, please refer to your Sales Agreement. </p></li>
+                                <li><p class="text clr-raven">The dates represented above are based on the transaction lock-in dates in the system and may differ from the payment date. </p></li>
+                                <li><p class="text clr-raven">This is a system generated document and does not require a signature or stamp.</p></li>
+
+                                
+                            </ol>
+                        </div>
+                    </div>
+                    <hr style="  margin-top: 2rem; margin-bottom: 2rem;border-top: 1px solid #e2e8f0;">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;">
+                        <p><span style="font-weight: 500;">Play your part in saving the planet </span></p>
+                        <p>Generated on: <span style="font-weight: 500;">{{ todayDate }}</span></p>
+                    </div>
+                    <div style="background: #F5F6F9;padding: 15px; margin-bottom: 20px;border-radius: 8px;font-size: 16px;">
+                        Replace your paper report with e-Reports, reducing the need for paper printing and carbon footprint of snail mail.
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id='footer'><img src="{{site_url}}/footer-graphic.svg" /></div>
+
+</body>
+
+</html>

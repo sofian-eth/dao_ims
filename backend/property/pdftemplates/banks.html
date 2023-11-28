@@ -1,0 +1,355 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @charset "UTF-8";
+
+        /*! * Bootstrap v5.0.2 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) */
+        :root {
+            --bs-blue: #0d6efd;
+            --bs-indigo: #6610f2;
+            --bs-purple: #6f42c1;
+            --bs-pink: #d63384;
+            --bs-red: #dc3545;
+            --bs-orange: #fd7e14;
+            --bs-yellow: #ffc107;
+            --bs-green: #198754;
+            --bs-teal: #20c997;
+            --bs-cyan: #0dcaf0;
+            --bs-white: #fff;
+            --bs-gray: #6c757d;
+            --bs-gray-dark: #343a40;
+            --bs-primary: #0d6efd;
+            --bs-secondary: #6c757d;
+            --bs-success: #198754;
+            --bs-info: #0dcaf0;
+            --bs-warning: #ffc107;
+            --bs-danger: #dc3545;
+            --bs-light: #f8f9fa;
+            --bs-dark: #212529;
+            --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+        }
+
+        *,
+        ::after,
+        ::before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            :root {
+                scroll-behavior: smooth;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--bs-font-sans-serif);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        hr {
+            margin: 1rem 0;
+            color: inherit;
+            background-color: currentColor;
+            border: 0;
+            opacity: .25;
+        }
+
+        hr:not([size]) {
+            height: 1px;
+        }
+
+        img,
+        svg {
+            vertical-align: middle;
+        }
+
+        .container {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+
+        .row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-top: calc(var(--bs-gutter-y) * -1);
+            margin-right: calc(var(--bs-gutter-x) * -.5);
+            margin-left: calc(var(--bs-gutter-x) * -.5);
+        }
+
+        .row>* {
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);
+            margin-top: var(--bs-gutter-y);
+        }
+
+        .col-12 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-6 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .col-xl-4 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                width: 33.33333333%;
+            }
+        }
+
+        @keyframes progress-bar-stripes {
+            0% {
+                background-position-x: 1rem;
+            }
+        }
+
+        @keyframes spinner-border {
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinner-grow {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        .m-0 {
+            margin: 0 !important;
+        }
+
+        .p-0 {
+            padding: 0 !important;
+        }
+
+        .--margin-50-vertical {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .bank-boxes {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .bank-boxes__box {
+            width: 100%;
+            height: 128px;
+            background: transparent;
+            padding: 15px 20px;
+            border: 2px solid #eeeff8;
+            border-radius: 8px;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .bank-boxes__box .top {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .bank-boxes__box .top .left {
+            width: 44px;
+        }
+
+        .bank-boxes__box .top .left .logo {
+            width: inherit;
+        }
+
+        .bank-boxes__box .top .left .logo img {
+            width: inherit;
+        }
+
+        .bank-boxes__box .top .right {
+            margin-left: 14px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: -webkit-fill-available;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .bank-boxes__box .top .right .bank-name-number .name {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 23px;
+            color: #131523;
+        }
+
+        .bank-boxes__box .top .right .bank-name-number .number {
+            font-size: 14px;
+            font-weight: 400;
+            color: #7e84a3;
+            line-height: 21px;
+        }
+
+        .bank-boxes__box .top .right .delete-icon {
+            background-color: #eeeff8;
+            border-radius: 4px;
+            height: 28px;
+            width: 28px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            visibility: hidden;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+
+        .bank-boxes__box .bot {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .bank-boxes__box .bot .left {
+            color: #7e84a3;
+            font-size: 14px;
+            line-height: 23px;
+            font-weight: 500;
+        }
+
+        .bank-boxes__box .bot .right {
+            color: #131532;
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+        }
+
+        .bank-boxes__box:hover {
+            -webkit-box-shadow: 0px 3px 16px #1315231f;
+            box-shadow: 0px 3px 16px #1315231f;
+            background: #ffffff;
+        }
+
+        .bank-boxes__box:hover .top .right .delete-icon {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body class="m-0 p-0">
+    <div class="container --margin-50-vertical">
+        <div class="row">
+            {{#each banks}}
+            <div class="col-12 col-md-6 col-xl-4 mb-3" style="margin-bottom: 15px;">
+                <div class="bank-boxes">
+                    <div class="bank-boxes__box" *ngFor="let bank of profile.bankInformation">
+                        <div class="top">
+                            <div class="left">
+                                <div class="logo"> <img src="{{banksAssetsUrl}}{{svg}}" alt=""> </div>
+                            </div>
+                            <div class="right">
+                                <div class="bank-name-number">
+                                    <div class="name">{{bankName}}</div>
+                                    <div class="number">{{accountNumber}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="bot">
+                            <div class="left">Account Title</div>
+                            <div class="right">{{accountTitle}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+
+</html>

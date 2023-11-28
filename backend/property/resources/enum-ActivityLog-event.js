@@ -1,0 +1,20 @@
+module.exports = {
+    UPDATED : 'Updated',
+    VIEWED : 'Viewed',
+    SEARCHED : 'Searched',
+    CREATED : 'Created',
+    ADDED : 'Added',
+    CANCELLED : 'Cancelled',
+    APPROVED : 'Approved',
+    DELETED : 'Deleted',
+    DISABLED : 'Disabled',
+    RELEASED: 'Released',
+    REQUESTED: 'Requested',
+    REJECTED: 'Rejected',
+    REVERTED: 'Reverted',
+    PAYED: 'Payed',
+    SENT: 'sent',
+    DOWNLOADEDRECEIPT: 'downloadedreceipt',
+    REQUESTEDWITHDRAWAL: 'requestedwithdrawal',
+    SKIPPED: 'skipped'
+}

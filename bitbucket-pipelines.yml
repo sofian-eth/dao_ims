@@ -1,0 +1,188 @@
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+   develop:
+   - step:
+      name: "Install Zip"
+      script:
+        - apt-get update && apt-get install zip
+      deployment: Test
+      caches:
+        - node
+   - parallel:
+      - step:
+         name: "IMS Zip File"
+         script:
+           - apt-get update && apt-get install zip
+           - cd backend
+           - cp -r core identity-management-system
+           - cd identity-management-system
+           - zip ../../dao-ims.zip -r .
+         artifacts: 
+           - dao-ims.zip
+
+      - step:
+         name: "Property Zip File"
+         script:
+           - cd backend
+           - cp -r blockchain property
+           - cp -r core property
+           - cd property
+           - zip ../../property.zip -r .
+         artifacts: 
+           - property.zip
+   - parallel:
+      - step:
+         script: # Modify the commands below to build your repository.
+         - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.5
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-southeast-1'
+            APPLICATION_NAME: 'dao-ims-dev-v3'
+            ENVIRONMENT_NAME: 'Daoimsdevv3-env'
+            S3_BUCKET: 'elasticbeanstalk-ap-southeast-1-976706270708'
+            ZIP_FILE: "dao-ims.zip"
+         - pipe: atlassian/aws-cloudfront-invalidate:0.4.1
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-south-1'      
+            DISTRIBUTION_ID: 'E1VSNC716X3Y5S'
+
+      - step:
+         script: # Modify the commands below to build your repository.
+         - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.5
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-southeast-1'
+            APPLICATION_NAME: 'elements-backend-api-dev'
+            ENVIRONMENT_NAME: 'Elements-backend-api-dev-env'
+            S3_BUCKET: 'elasticbeanstalk-ap-southeast-1-976706270708'
+            ZIP_FILE: "property.zip"
+
+
+   staging:
+   - step:
+      name: "Install Zip"
+      script:
+        - apt-get update && apt-get install zip
+      deployment: Test
+      caches:
+        - node
+   - parallel:
+      - step:
+         name: "IMS Zip File"
+         script:
+           - apt-get update && apt-get install zip
+           - cd backend
+           - cp -r core identity-management-system
+           - cd identity-management-system
+           - zip ../../dao-ims.zip -r .
+         artifacts: 
+           - dao-ims.zip
+
+      - step:
+         name: "Property Zip File"
+         script:
+           - cd backend
+           - cp -r blockchain property
+           - cp -r core property
+           - cd property
+           - zip ../../property.zip -r .
+         artifacts: 
+           - property.zip
+   - parallel:
+      - step:
+         script: # Modify the commands below to build your repository.
+         - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.5
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-southeast-1'
+            APPLICATION_NAME: 'dao-ims-staging'
+            ENVIRONMENT_NAME: 'Daoimsstaging-env'
+            S3_BUCKET: 'elasticbeanstalk-ap-southeast-1-976706270708'
+            ZIP_FILE: "dao-ims.zip"
+         - pipe: atlassian/aws-cloudfront-invalidate:0.4.1
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-south-1'      
+            DISTRIBUTION_ID: 'E1VSNC716X3Y5S'
+
+      - step:
+         script: # Modify the commands below to build your repository.
+         - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.5
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-southeast-1'
+            APPLICATION_NAME: 'elements-backend-api-dev'
+            ENVIRONMENT_NAME: 'Property-backend-staging'
+            S3_BUCKET: 'elasticbeanstalk-ap-southeast-1-976706270708'
+            ZIP_FILE: "property.zip"
+
+   master:
+   - step:
+      name: "Install Zip"
+      script:
+        - apt-get update && apt-get install zip
+      deployment: Test
+      caches:
+        - node
+   - parallel:
+      - step:
+         name: "IMS Zip File"
+         script:
+           - apt-get update && apt-get install zip
+           - cd backend
+           - cp -r core identity-management-system
+           - cd identity-management-system
+           - zip ../../dao-ims.zip -r .
+         artifacts: 
+           - dao-ims.zip
+
+      - step:
+         name: "Property Zip File"
+         script:
+           - cd backend
+           - cp -r blockchain property
+           - cp -r core property
+           - cd property
+           - zip ../../property.zip -r .
+         artifacts: 
+           - property.zip
+   - parallel:
+      - step:
+         script: # Modify the commands below to build your repository.
+         - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.5
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-southeast-1'
+            APPLICATION_NAME: 'DAO-Identity-Managment-System'
+            ENVIRONMENT_NAME: 'DAO-Production-IMS-v3'
+            S3_BUCKET: 'elasticbeanstalk-ap-southeast-1-976706270708'
+            ZIP_FILE: "dao-ims.zip"
+         - pipe: atlassian/aws-cloudfront-invalidate:0.4.1
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-south-1'      
+            DISTRIBUTION_ID: 'E1VSNC716X3Y5S'
+
+      - step:
+         script: # Modify the commands below to build your repository.
+         - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.5
+           variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'ap-southeast-1'
+            APPLICATION_NAME: 'BLOC-Backend'
+            ENVIRONMENT_NAME: 'Blocbackend-env-latest'
+            S3_BUCKET: 'elasticbeanstalk-ap-southeast-1-976706270708'
+            ZIP_FILE: "property.zip"
+

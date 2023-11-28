@@ -1,0 +1,2050 @@
+{
+    "tables": {
+        "accountactivity": {
+            "tableName": "accountactivity",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "userID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "userID",
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "subjectType": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "lov",
+                        "key": "id"
+                    },
+                    "field": "subjectType",
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "action": {
+                    "allowNull": true,
+                    "field": "action",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "userAgent": {
+                    "allowNull": true,
+                    "field": "userAgent",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "IPAddress": {
+                    "allowNull": true,
+                    "field": "IPAddress",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "browser": {
+                    "allowNull": true,
+                    "field": "browser",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "operatingSystem": {
+                    "allowNull": true,
+                    "field": "operatingSystem",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "34ac5c94ea2732a79d2b322ef4e67b42f1660f45": {
+                    "name": "userID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "userID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "userID"
+                    }
+                },
+                "74f365ff02cb2e9e574495c32f97f206e7edba1d": {
+                    "name": "subjectType",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "subjectType"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "subjectType"
+                    }
+                }
+            }
+        },
+        "bidders": {
+            "tableName": "bidders",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "orderID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "marketplaceorders",
+                        "key": "id"
+                    },
+                    "field": "orderID",
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "buyerID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "buyerID",
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "sqftPrice": {
+                    "allowNull": false,
+                    "field": "sqftPrice",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "b7fc8ec2ad0c5d4b4782ec3ebf9c61284c9a188d": {
+                    "name": "orderID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "orderID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "orderID"
+                    }
+                },
+                "0b3e7493c4369314cc5487d96b1840a46592799c": {
+                    "name": "buyerID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "buyerID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "buyerID"
+                    }
+                }
+            }
+        },
+        "developmentrounds": {
+            "tableName": "developmentrounds",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "statusID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "status",
+                        "key": "id"
+                    },
+                    "field": "statusID",
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "roundName": {
+                    "allowNull": true,
+                    "field": "roundName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "roundDetails": {
+                    "allowNull": true,
+                    "field": "roundDetails",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "startDate": {
+                    "allowNull": true,
+                    "field": "startDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "endDate": {
+                    "allowNull": true,
+                    "field": "endDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "funds": {
+                    "allowNull": true,
+                    "field": "funds",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "pricePerSqft": {
+                    "allowNull": true,
+                    "field": "pricePerSqft",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "lockFundsTx": {
+                    "allowNull": true,
+                    "field": "lockFundsTx",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "unlockFundsTx": {
+                    "allowNull": true,
+                    "field": "unlockFundsTx",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "discounts": {
+                    "allowNull": true,
+                    "field": "discounts",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "marketPrice": {
+                    "allowNull": true,
+                    "field": "marketPrice",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                },
+                "0a4079443c7868045f4168a2211582f737492e7a": {
+                    "name": "statusID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "statusID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "statusID"
+                    }
+                }
+            }
+        },
+        "documents": {
+            "tableName": "documents",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "documentName": {
+                    "allowNull": false,
+                    "field": "documentName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "documentUrl": {
+                    "allowNull": true,
+                    "field": "documentUrl",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "documentType": {
+                    "allowNull": true,
+                    "field": "documentType",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "lov": {
+            "tableName": "lov",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "allowNull": true,
+                    "field": "name",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "marketplaceorders": {
+            "tableName": "marketplaceorders",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "sellerID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "sellerID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "areaUnits": {
+                    "allowNull": false,
+                    "field": "areaUnits",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "sqftPrice": {
+                    "allowNull": false,
+                    "field": "sqftPrice",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "totalCost": {
+                    "allowNull": false,
+                    "field": "totalCost",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "statusID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "status",
+                        "key": "id"
+                    },
+                    "field": "statusID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "0ff4082e2927ddc9ab3cf58120285ea9d0d560ba": {
+                    "name": "sellerID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "sellerID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "sellerID"
+                    }
+                },
+                "0a4079443c7868045f4168a2211582f737492e7a": {
+                    "name": "statusID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "statusID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "statusID"
+                    }
+                }
+            }
+        },
+        "paymentmode": {
+            "tableName": "paymentmode",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "paymentMode": {
+                    "allowNull": false,
+                    "field": "paymentMode",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "permissions": {
+            "tableName": "permissions",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "allowNull": false,
+                    "unique": "name",
+                    "field": "name",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "316329abf648757d1c9a4dfc91076c624282cae2": {
+                    "name": "name",
+                    "unique": true,
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "name"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "name",
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        },
+        "phonelookup": {
+            "tableName": "phonelookup",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "phoneNumber": {
+                    "allowNull": true,
+                    "field": "phoneNumber",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "smsID": {
+                    "allowNull": true,
+                    "field": "smsID",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "portfoliobalance": {
+            "tableName": "portfoliobalance",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "userID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "userID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "balance": {
+                    "allowNull": true,
+                    "field": "balance",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "property": {
+            "tableName": "property",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "allowNull": false,
+                    "field": "name",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "description": {
+                    "allowNull": true,
+                    "field": "description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "location": {
+                    "allowNull": true,
+                    "field": "location",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "totalSqft": {
+                    "allowNull": true,
+                    "field": "totalSqft",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "coverPhoto": {
+                    "allowNull": true,
+                    "field": "coverPhoto",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "propertyStatus": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "status",
+                        "key": "id"
+                    },
+                    "field": "propertyStatus",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "circulationArea": {
+                    "allowNull": true,
+                    "field": "circulationArea",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertySymbol": {
+                    "allowNull": true,
+                    "field": "propertySymbol",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "blockchainMainContract": {
+                    "allowNull": true,
+                    "field": "blockchainMainContract",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "db595d5e2cea42683b38ee42dcebadc2c74274a0": {
+                    "name": "propertyStatus",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyStatus"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyStatus"
+                    }
+                }
+            }
+        },
+        "propertydocuments": {
+            "tableName": "propertydocuments",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "documentID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "documents",
+                        "key": "id"
+                    },
+                    "field": "documentID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "documentType": {
+                    "allowNull": true,
+                    "field": "documentType",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "title": {
+                    "allowNull": true,
+                    "field": "title",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "2042aa22a3d009c902b5c297f8781272eb20ca51": {
+                    "name": "documentID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "documentID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "documentID"
+                    }
+                },
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "propertygallery": {
+            "tableName": "propertygallery",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "imageURL": {
+                    "allowNull": false,
+                    "field": "imageURL",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "propertymilestones": {
+            "tableName": "propertymilestones",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "roundID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "developmentrounds",
+                        "key": "id"
+                    },
+                    "field": "roundID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "allowNull": true,
+                    "field": "title",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "description": {
+                    "allowNull": true,
+                    "field": "description",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "completionProgress": {
+                    "allowNull": true,
+                    "field": "completionProgress",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "a4295207e915a3eacb8223cdb7ec4e263ba69a6d": {
+                    "name": "roundID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "roundID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "roundID"
+                    }
+                }
+            }
+        },
+        "propertypricehistory": {
+            "tableName": "propertypricehistory",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyValue": {
+                    "allowNull": true,
+                    "field": "propertyValue",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "propertystats": {
+            "tableName": "propertystats",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "rentalYield": {
+                    "allowNull": true,
+                    "field": "rentalYield",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "ROR": {
+                    "allowNull": true,
+                    "field": "ROR",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "equityMultiple": {
+                    "allowNull": true,
+                    "field": "equityMultiple",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "assetLiquidation": {
+                    "allowNull": true,
+                    "field": "assetLiquidation",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "capitalGrowth": {
+                    "allowNull": true,
+                    "field": "capitalGrowth",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "netRentalReturn": {
+                    "allowNull": true,
+                    "field": "netRentalReturn",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "investmentPeriod": {
+                    "allowNull": true,
+                    "field": "investmentPeriod",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "estimatedIRR": {
+                    "allowNull": true,
+                    "field": "estimatedIRR",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "minInvestment": {
+                    "allowNull": true,
+                    "field": "minInvestment",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "fundingRounds": {
+                    "allowNull": true,
+                    "field": "fundingRounds",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "expectedgrowthrate": {
+                    "allowNull": true,
+                    "field": "expectedgrowthrate",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "guaranteedgrowthrate": {
+                    "allowNull": true,
+                    "field": "guaranteedgrowthrate",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "marketriskgrowthrate": {
+                    "allowNull": true,
+                    "field": "marketriskgrowthrate",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "expectedmaturitydate": {
+                    "allowNull": true,
+                    "field": "expectedmaturitydate",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "propertytype": {
+                    "allowNull": true,
+                    "field": "propertytype",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "discount": {
+                    "allowNull": true,
+                    "field": "discount",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "propertytaxes": {
+            "tableName": "propertytaxes",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "taxID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "taxestype",
+                        "key": "id"
+                    },
+                    "field": "taxID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "price": {
+                    "allowNull": true,
+                    "field": "price",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "4344df72e25d6b2cc2eda5406feb8cc3b5da69bf": {
+                    "name": "taxID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "taxID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "taxID"
+                    }
+                },
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "propertyupdates": {
+            "tableName": "propertyupdates",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "allowNull": false,
+                    "field": "title",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "description": {
+                    "allowNull": true,
+                    "field": "description",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "url": {
+                    "allowNull": true,
+                    "field": "url",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                }
+            }
+        },
+        "propertyupdatestag": {
+            "tableName": "propertyupdatestag",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "tagID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "tags",
+                        "key": "id"
+                    },
+                    "field": "tagID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "updateID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "propertyupdates",
+                        "key": "id"
+                    },
+                    "field": "updateID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "c02adbf471bca2540e780b0882ae4829dbe4c0fc": {
+                    "name": "tagID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "tagID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "tagID"
+                    }
+                },
+                "dc93ad646e7be9e83f70f4422683fc12b5a1abc3": {
+                    "name": "updateID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "updateID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "updateID"
+                    }
+                }
+            }
+        },
+        "rolePermissions": {
+            "tableName": "rolePermissions",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "roleID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "roles",
+                        "key": "id"
+                    },
+                    "field": "roleID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "permissionID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "permissions",
+                        "key": "id"
+                    },
+                    "field": "permissionID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "75f3584ec09f001680a7ce0084d9ceca4c2618ef": {
+                    "name": "roleID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "roleID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "roleID"
+                    }
+                },
+                "171e83927edbaadf490a3e309f114dea1b25acf9": {
+                    "name": "permissionID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "permissionID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "permissionID"
+                    }
+                }
+            }
+        },
+        "roles": {
+            "tableName": "roles",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "allowNull": false,
+                    "unique": "name",
+                    "field": "name",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "316329abf648757d1c9a4dfc91076c624282cae2": {
+                    "name": "name",
+                    "unique": true,
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "name"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "name",
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        },
+        "status": {
+            "tableName": "status",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "allowNull": false,
+                    "unique": "name",
+                    "field": "name",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "316329abf648757d1c9a4dfc91076c624282cae2": {
+                    "name": "name",
+                    "unique": true,
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "name"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "name",
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        },
+        "tags": {
+            "tableName": "tags",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "tagName": {
+                    "allowNull": false,
+                    "field": "tagName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "taxestype": {
+            "tableName": "taxestype",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "taxDescription": {
+                    "allowNull": false,
+                    "field": "taxDescription",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "tradeactivity": {
+            "tableName": "tradeactivity",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "agentID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "agentID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "sellerID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "sellerID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "buyerID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "buyerID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "roundID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "developmentrounds",
+                        "key": "id"
+                    },
+                    "field": "roundID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "blockchainReference": {
+                    "allowNull": true,
+                    "field": "blockchainReference",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "billingAddress": {
+                    "allowNull": true,
+                    "field": "billingAddress",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "areaPledged": {
+                    "allowNull": true,
+                    "field": "areaPledged",
+                    "seqType": "Sequelize.DECIMAL(20, 4)"
+                },
+                "totalPrice": {
+                    "allowNull": true,
+                    "field": "totalPrice",
+                    "seqType": "Sequelize.DECIMAL(20, 4)"
+                },
+                "propertyID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "property",
+                        "key": "id"
+                    },
+                    "field": "propertyID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "sqftPrice": {
+                    "allowNull": true,
+                    "field": "sqftPrice",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "paymentMode": {
+                    "allowNull": true,
+                    "field": "paymentMode",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "queueNumber": {
+                    "allowNull": true,
+                    "field": "queueNumber",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "paymentDate": {
+                    "allowNull": true,
+                    "field": "paymentDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "operations": {
+                    "allowNull": true,
+                    "field": "operations",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "status": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "status",
+                        "key": "id"
+                    },
+                    "field": "status",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "35fc3c5ef213ae02d36c494da235bdafd60d02e8": {
+                    "name": "agentID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "agentID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "agentID"
+                    }
+                },
+                "0ff4082e2927ddc9ab3cf58120285ea9d0d560ba": {
+                    "name": "sellerID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "sellerID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "sellerID"
+                    }
+                },
+                "0b3e7493c4369314cc5487d96b1840a46592799c": {
+                    "name": "buyerID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "buyerID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "buyerID"
+                    }
+                },
+                "a4295207e915a3eacb8223cdb7ec4e263ba69a6d": {
+                    "name": "roundID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "roundID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "roundID"
+                    }
+                },
+                "439a26a94d47aefe885c360aefca346c59a8032b": {
+                    "name": "propertyID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "propertyID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "propertyID"
+                    }
+                },
+                "11a06986c70671440768a281111d61b997fe298a": {
+                    "name": "status",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "status"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "status"
+                    }
+                }
+            }
+        },
+        "tradedocuments": {
+            "tableName": "tradedocuments",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "tradeID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "tradeactivity",
+                        "key": "id"
+                    },
+                    "field": "tradeID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "documentID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "documents",
+                        "key": "id"
+                    },
+                    "field": "documentID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "4b3eb049d00fc864c0589ea409f42afb5a05e92a": {
+                    "name": "tradeID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "tradeID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "tradeID"
+                    }
+                },
+                "2042aa22a3d009c902b5c297f8781272eb20ca51": {
+                    "name": "documentID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "documentID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "documentID"
+                    }
+                }
+            }
+        },
+        "userInformations": {
+            "tableName": "userInformations",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "dateOfBirth": {
+                    "allowNull": true,
+                    "field": "dateOfBirth",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "billingAddress": {
+                    "allowNull": true,
+                    "field": "billingAddress",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "shippingAddress": {
+                    "allowNull": true,
+                    "field": "shippingAddress",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "city": {
+                    "allowNull": true,
+                    "field": "city",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "country": {
+                    "allowNull": true,
+                    "field": "country",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "province": {
+                    "allowNull": true,
+                    "field": "province",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "is_kyc_approved": {
+                    "allowNull": true,
+                    "field": "is_kyc_approved",
+                    "seqType": "Sequelize.TINYINT"
+                },
+                "userID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "userID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "statusID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "status",
+                        "key": "id"
+                    },
+                    "field": "statusID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "paymentMode": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "paymentmode",
+                        "key": "id"
+                    },
+                    "field": "paymentMode",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "legalName": {
+                    "allowNull": true,
+                    "field": "legalName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "identityCardNumber": {
+                    "allowNull": true,
+                    "field": "identityCardNumber",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "34ac5c94ea2732a79d2b322ef4e67b42f1660f45": {
+                    "name": "userID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "userID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "userID"
+                    }
+                },
+                "0a4079443c7868045f4168a2211582f737492e7a": {
+                    "name": "statusID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "statusID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "statusID"
+                    }
+                },
+                "66a18ce441db7b7dadf2ca5e034d5d212b38d01d": {
+                    "name": "paymentMode",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "paymentMode"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "paymentMode"
+                    }
+                }
+            }
+        },
+        "users": {
+            "tableName": "users",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "firstName": {
+                    "allowNull": true,
+                    "field": "firstName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "middleName": {
+                    "allowNull": true,
+                    "field": "middleName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "lastName": {
+                    "allowNull": true,
+                    "field": "lastName",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "email": {
+                    "allowNull": true,
+                    "unique": "email",
+                    "field": "email",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "phoneNumber": {
+                    "allowNull": true,
+                    "field": "phoneNumber",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "is_phonenumber_verified": {
+                    "allowNull": true,
+                    "field": "is_phonenumber_verified",
+                    "seqType": "Sequelize.TINYINT"
+                },
+                "is_email_verified": {
+                    "allowNull": true,
+                    "field": "is_email_verified",
+                    "seqType": "Sequelize.TINYINT"
+                },
+                "smsID": {
+                    "allowNull": true,
+                    "field": "smsID",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "source": {
+                    "allowNull": true,
+                    "field": "source",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "googleID": {
+                    "allowNull": true,
+                    "field": "googleID",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "facebookID": {
+                    "allowNull": true,
+                    "field": "facebookID",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "roleID": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "roles",
+                        "key": "id"
+                    },
+                    "field": "roleID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "password": {
+                    "allowNull": true,
+                    "field": "password",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "emailVerificationToken": {
+                    "allowNull": true,
+                    "field": "emailVerificationToken",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "passwordResetToken": {
+                    "allowNull": true,
+                    "field": "passwordResetToken",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "walletAddress": {
+                    "allowNull": true,
+                    "field": "walletAddress",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "membershipNumber": {
+                    "allowNull": true,
+                    "field": "membershipNumber",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "passwordChangeRequire": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": 0
+                    },
+                    "field": "passwordChangeRequire",
+                    "seqType": "Sequelize.TINYINT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "4891616bbc7308a612267a22629ed2e79be02aba": {
+                    "name": "email",
+                    "unique": true,
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "email"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "email",
+                        "indicesType": "UNIQUE"
+                    }
+                },
+                "75f3584ec09f001680a7ce0084d9ceca4c2618ef": {
+                    "name": "roleID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "roleID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "roleID"
+                    }
+                }
+            }
+        },
+        "usersession": {
+            "tableName": "usersession",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "userID": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "field": "userID",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "sessionID": {
+                    "allowNull": true,
+                    "field": "sessionID",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "34ac5c94ea2732a79d2b322ef4e67b42f1660f45": {
+                    "name": "userID",
+                    "using": "BTREE",
+                    "fields": [
+                        {
+                            "name": "userID"
+                        }
+                    ],
+                    "options": {
+                        "indexName": "userID"
+                    }
+                }
+            }
+        }
+    },
+    "revision": 1
+}

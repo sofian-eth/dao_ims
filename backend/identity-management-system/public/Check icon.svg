@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+  <g id="Check_icon" data-name="Check icon" transform="translate(0.184 0.082)">
+    <g id="Group_2096" data-name="Group 2096" transform="translate(0 0.102)">
+      <g id="Group_1457" data-name="Group 1457" transform="translate(0 0)">
+        <circle id="Ellipse_1116" data-name="Ellipse 1116" cx="13.5" cy="13.5" r="13.5" transform="translate(-0.184 -0.184)" fill="#0200e0"/>
+      </g>
+    </g>
+    <path id="check" d="M16.214,6l-8.4,8.4L4,10.58" transform="translate(3.43 3.503)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+</svg>

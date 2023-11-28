@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @page {
+            margin: 20px 0 0px 0;
+            size: letter;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            font-size: 0.75rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        hr {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-sizing: content-box;
+            height: 0;
+            overflow: visible;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-5 {
+            flex: 0 0 41.6666666667%;
+            max-width: 41.6666666667%;
+        }
+
+        .col-7 {
+            flex: 0 0 58.3333333333%;
+            max-width: 58.3333333333%;
+        }
+
+        /* flex */
+        .d-flex {
+            display: flex;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .align-items-baseline {
+            align-items: baseline;
+        }
+
+        .justify-content-between {
+            justify-content: space-between;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        /* gap */
+        .gap-10 {
+            gap: 10px;
+        }
+
+        .gap-20 {
+            gap: 20px;
+        }
+
+        .gap-50 {
+            gap: 50px;
+        }
+
+        /* card */
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+        }
+
+        .card>hr {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 1.25rem;
+        }
+
+
+        .card-note {
+            max-width: 450px;
+            background: #F8FFFD 0% 0% no-repeat padding-box;
+            border: 2px solid #31739833;
+            border-radius: 8px;
+        }
+
+        .card-bank {
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #D7DBEC;
+            border-radius: 12px;
+            max-width: 450px;
+        }
+
+        .card-bank .title {
+            letter-spacing: normal !important;
+        }
+
+        /* font */
+        .font-r {
+            font-weight: 400;
+        }
+
+        .font-m {
+            font-weight: 500;
+        }
+
+        .font-sb {
+            font-weight: 600;
+        }
+
+        .font-b {
+            font-weight: 700;
+        }
+
+        .fs-10 {
+            font-size: 10px;
+        }
+
+        .fs-12 {
+            font-size: 12px;
+        }
+
+        .fs-14 {
+            font-size: 14px;
+        }
+
+        .fs-16 {
+            font-size: 16px;
+        }
+
+        .fs-18 {
+            font-size: 18px;
+        }
+
+        .fs-20 {
+            font-size: 20px;
+        }
+
+        .fs-22 {
+            font-size: 22px;
+        }
+
+        /* height, width and spacing */
+        .mb-80 {
+            margin-bottom: 80px;
+        }
+
+        .mb-40 {
+            margin-bottom: 40% !important;
+        }
+
+        .mr-1,
+        .mx-1 {
+            margin-right: 0.25rem !important;
+        }
+
+        .mb-1,
+        .my-1 {
+            margin-bottom: 0.25rem !important;
+        }
+
+        .mb-2,
+        .my-2 {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .mb-3,
+        .my-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .mb-4,
+        .my-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .mb-5,
+        .my-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .mt-2,
+        .my-2 {
+            margin-top: 0.5rem !important;
+        }
+
+        .p-2 {
+            padding: 0.5rem !important;
+        }
+
+        .p-4 {
+            padding: 1.5rem !important;
+        }
+
+        .pl-3,
+        .px-3 {
+            padding-left: 1rem !important;
+        }
+
+        .pr-3,
+        .px-3 {
+            padding-right: 1rem !important;
+        }
+
+        .pb-1,
+        .py-1 {
+            padding-bottom: 0.25rem !important;
+        }
+
+        .pt-1,
+        .py-1 {
+            padding-top: 0.25rem !important;
+        }
+
+        .pl-5,
+        .px-5 {
+            padding-left: 3rem !important;
+        }
+
+        .pr-5,
+        .px-5 {
+            padding-right: 3rem !important;
+        }
+
+        .mw-450 {
+            max-width: 450px;
+        }
+
+        .h-430 {
+            height: 430px;
+        }
+
+        /* color */
+        .bg-white {
+            background-color: #ffffff;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .text-dark {
+            color: #023958 !important;
+        }
+
+        .text-light {
+            color: #707A8A !important;
+        }
+
+        .text-success {
+            color: #0ecb81 !important;
+        }
+
+        .text-danger {
+            color: #f6465d !important;
+        }
+
+        .bg-clr-light {
+            background: #FCFEFE 0% 0% no-repeat padding-box;
+            border: 1px solid #D7DBEC;
+            border-radius: 4px 0px 0px 4px;
+        }
+
+        .bg-clr-dark {
+            background: #F7FAFA 0% 0% no-repeat padding-box;
+            border: 1px solid #D7DBEC;
+            border-radius: 0px 4px 4px 0px;
+        }
+
+        .bg-clr-dark .title {
+            letter-spacing: normal !important;
+        }
+
+        .bg-clr-dark .total-payout {
+            background: #EBEDED 0% 0% no-repeat padding-box;
+            border-radius: 9px;
+        }
+
+        /* line-height */
+        .line-height {
+            line-height: normal;
+        }
+
+        /* header start */
+        .header .fs-11 {
+            font-size: 10px;
+        }
+
+        .header .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50px;
+        }
+
+        .header.bg-light-success {
+            background: #EDFBFC 0% 0% no-repeat padding-box;
+            border: 1px solid #EDFBFC;
+        }
+
+        .header.bg-light-success .dot {
+            border: 1px solid #1A5962;
+            background: #1A5962;
+        }
+
+        .header.bg-light-success .hr-border {
+            border: 2px solid #157A89;
+        }
+
+        .header.bg-light-warning {
+            background: #F7E7DD 0% 0% no-repeat padding-box;
+            border: 1px solid #F7E7DD;
+        }
+
+        .header.bg-light-warning .dot {
+            border: 1px solid #9B4B1B;
+            background: #9B4B1B;
+        }
+
+        .header.bg-light-warning .hr-border {
+            border: 2px solid #9B4B1B;
+        }
+
+        .header.bg-light--grey {
+            background: #F4F4F7 0% 0% no-repeat padding-box;
+            border: 1px solid #F4F4F7;
+        }
+
+        .header.bg-light--grey .dot {
+            border: 1px solid #707A8A;
+            background: #707A8A;
+        }
+
+        .header.bg-light--grey .hr-border {
+            border: 2px solid #707A8A;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            padding: 4px 12px;
+            width: fit-content;
+            min-width: 80px;
+            /* font-size: 12px;
+            font-family: 'poppins-medium'; */
+        }
+
+        .header .pill.pill_danger {
+            background: #DC143C;
+            color: #ffffff;
+        }
+
+        .header .pill.pill_success {
+            background: #0A955E;
+            color: #ffffff;
+        }
+
+        .header .border-radius-0 {
+            border-radius: 0;
+        }
+
+        .pill.pill_gray-dark {
+            background: #02395826;
+            color: #023958;
+        }
+
+        .pill_gray-dark span {
+            color: #131523 !important;
+        }
+
+        /* header end */
+
+        /* border */
+        .border-0 {
+            border: 0 !important;
+        }
+
+        .border-top-0 {
+            border-top: 0 !important;
+        }
+
+        /* new */
+
+        /* image */
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+
+        .img-container {
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .img-container.s-55 {
+            width: 55px;
+            min-width: 55px;
+            height: 55px;
+        }
+
+        .img-container.s-40 {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+        }
+
+        .img-container img {
+            height: 100%;
+            width: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        .img-container-radius {
+            box-shadow: 0px 1px 2px #1B575F1F;
+            border-radius: 24px;
+        }
+
+        .rounded-img {
+            border-radius: 50px !important;
+            border: 1px solid #D7DBEC;
+            box-shadow: none;
+        }
+
+        /* list */
+        .info-listing .il-items .il-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .info-listing .il-items .il-item .title {
+            /* font-size: 12px; */
+            color: #707a8a;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .info-listing .il-items .il-item .value {
+            color: #131523;
+            /* font-size: 14px; */
+            /* font-weight: 600; */
+        }
+
+        .info-listing .il-items .il-item .value .const {
+            color: #707a8a;
+            margin-left: 5px;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .info-listing .il-items .il-item:not(:last-of-type) {
+            margin-bottom: 10px;
+        }
+
+        /* table */
+        .tbl_basic {
+            margin-bottom: 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tbl_basic th,
+        .tbl_basic td {
+            vertical-align: middle !important;
+            border: none !important;
+            padding: 0 10px !important;
+            text-align: left;
+        }
+
+        .tbl_basic thead tr {
+            height: 45px !important;
+            border-bottom: 1px solid #d7dbec;
+        }
+
+        .tbl_basic thead tr th {
+            border: none;
+            font-size: 14px;
+            color: #707A8A;
+            font-weight: unset;
+            font-weight: 500;
+        }
+
+        .tbl_basic thead.th-uppercase {
+            text-transform: uppercase;
+        }
+
+        .tbl_basic tbody tr {
+            height: 50px;
+        }
+
+        .tbl_basic tbody tr:nth-child(odd) {
+            background: #F5F6F9
+        }
+
+        .tbl_basic tbody tr:not(:last-of-type) {
+            border-bottom: 1px solid #d7dbec;
+        }
+
+        .tbl_basic tbody tr td {
+            font-size: 14px;
+            color: #131523;
+        }
+
+        .tbl_basic tbody tr td .const {
+            font-size: 12px;
+            color: #707a8a;
+            margin-left: 3px;
+        }
+
+        .table-striped th:first-child {
+            border-left: 1px solid #D7DBEC !important;
+        }
+
+        .table-striped th:last-child {
+            border-right: 1px solid #D7DBEC !important;
+        }
+
+        .table-striped th {
+            border-top: 1px solid #D7DBEC !important;
+            font-size: 14px !important;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #F5F6F9;
+        }
+
+        .table-striped tbody td {
+            font-weight: 500;
+            border: 1px solid #D7DBEC !important;
+        }
+
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #FCFEFE;
+        }
+
+        .table-striped tfoot tr {
+            height: 50px;
+            border: 1px solid #D7DBEC;
+        }
+
+        /* footer */
+        .footer {
+            background: #F4F4F7 0% 0% no-repeat padding-box;
+            border: 1px solid #F4F4F7;
+            height: auto;
+            text-align: start;
+            line-height: normal;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .footer.border-radius-0 {
+            border-radius: 0;
+        }
+
+        .footer .card-light {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #FFFFFFBF 0% 0% no-repeat padding-box;
+            border-radius: 8px;
+        }
+
+        .footer .card-light .circle-light {
+            background: #F4F4F7 0% 0% no-repeat padding-box;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-white" style="position:relative;">
+        <div class="card header border-radius-0 bg-light--grey">
+            <div class="d-flex gap-20">
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+                <div class="d-flex align-items-center flex-column">
+                    <p class=" fs-10">|</p>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <hr class="hr-border mt-2">
+
+            <div class="card-body px-5">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="font-sb fs-20 text-dark">Rental Projects Summary</p>
+
+                    </div>
+
+                    <div class="d-flex flex-column">
+                        <p class="font-sb fs-20 text-dark mb-1">Rental Report</p>
+                        <p class="fs-14 text-light mb-1">Duration : <span class="font-sb text-dark">{{startDate}}-{{endDate}}</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container content px-5">
+            <div class="card border-top-0 mb-80">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex gap-10">
+                            <div>
+                                <div class="img-container-radius">
+                                    <img src="{{site_url}}/userimg.png" alt="">
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex gap-10">
+                                    <p class="text-dark fs-18 font-sb">{{ holderInfo.userName }}</p>
+                                    <div class="pill pill_gray-dark text-dark fs-12 font-sb" style="min-width: auto">{{ holderInfo.daoID }}
+                                    </div>
+                                </div>
+                                <p class="text-light fs-12 font-m mb-3">Member Since {{holderInfo.memberSince}}</p>
+                                <p class="fs-14 text-light font-m"> <i class="fas fa-phone"></i>&nbsp;{{ holderInfo.phone }}</p>
+
+                            </div>
+                        </div>
+
+                        <div class="info-listing">
+                            <div class="il-items">
+                                <div class="il-item gap-50">
+                                    <div class="title text-dark line-height">Amount</div>
+                                    <div class="value text-success fs-22 font-sb">{{ totalAmount }} <span
+                                            class="const fs-14">PKR</span></div>
+                                </div>
+                                <div class="il-item">
+                                    <div class="title text-dark line-height">Tax</div>
+                                    <div class="value text-danger fs-20 font-sb">{{ totalTax }}<span
+                                            class="const fs-14">PKR</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Summary -->
+            <p class="text text-dark fs-16 font-sb mb-3">Projects Summary</p>
+
+            <table class="table tbl_basic mbl-card-view col-two table-striped">
+                <thead class="th-uppercase">
+                    <tr>
+                        <th>Project</th>
+                        <th>Total Payout</th>
+                        <th>Area</th>
+                        <th>Total Tax</th>
+                        <th>Amount Paid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each propertyListing}}
+                    <tr>
+                        <td>
+                            {{ this.propertyName }}
+                        </td>
+                        <td>
+                            {{ this.totalPayouts }}
+                        </td>
+                        <td>
+                            {{this.area}}<span class="const"> sq. ft.</span>
+                        </td>
+                        <td>
+                            {{ this.amount.tax }}<span class="const">PKR</span>
+
+                        </td>
+                        <td>
+                            {{  this.amount.rental }}<span class="const">PKR</span>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="text-light fs-16 font-m" colspan="3">TOTAL</td>
+                        <td class="font-sb fs-16 text-danger">{{ totalTax }}&nbsp;<span>PKR</span></td>
+                        <td class="font-sb fs-16 text-success">{{ totalAmount }}&nbsp;<span>PKR</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="card footer border-radius-0">
+            <div class="card-body">
+                <div class="d-flex flex-column">
+                    <p class="text-light fs-14 ">PLATFORM PARTNER</p>
+                    <img src="{{site_url}}/DAO-logo.png" alt="" width="291">
+                    <p class="text-dark font-m fs-12 mb-1 mt-2">HAVE A QUESTION OR NEED FURTHER CLARIFICATION?</p>
+                    <p class="text-light fs-14 mb-4">Feel free to talk to your dedicated sales representative</p>
+                </div>
+
+                <div class="d-flex gap-10 mb-4">
+                    <div class="card-light gap-10 py-1 px-3">
+                        <div class="circle-light p-2"><i class="fas fa-user text-light fs-12"></i></div>
+                        <p class="text">Haseeb Mirza</p>
+                    </div>
+                    <div class="card-light gap-10 py-1 px-3">
+                        <div class="circle-light p-2"><i class="fas fa-phone text-light fs-12"></i></div>
+                        <p class="text">+92 300 1234567</p>
+                    </div>
+                    <div class="card-light gap-10 py-1 px-3">
+                        <div class="circle-light p-2"><i class="fas fa-envelope text-light fs-12"></i></div>
+                        <p class="text">haseebmirza@daoproptech.com</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <img src="{{site_url}}/DAO.png" alt="bloc" width="100">
+                    </div>
+                    <div class="d-flex gap-10">
+                        <p class="fs-12 text-light">Reach us at</p>
+                        <p class="fs-12 text-light"> <i class="fas fa-phone"></i> +92 314 326 7767</p>
+                        <p class="fs-12 text-light"> <i class="fas fa-globe"></i> daoproptech.com</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

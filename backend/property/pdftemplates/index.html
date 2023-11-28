@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <style>
+        html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  zoom: 65%;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-xs-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-xs-12 {
+  float: left;
+}
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.container-fluid:after,
+.container-fluid:before,
+.container:after,
+.container:before,
+.row:after,
+.row:before {
+  display: table;
+  content: " ";
+}
+
+.container-fluid:after,
+.container:after,
+.row:after {
+  clear: both;
+}
+
+.container {
+  width: calc(100% - 200px);
+  margin: 0 auto;
+}
+
+.container-fluid {
+  width: calc(100% - 55px);
+}
+
+@font-face {
+  font-family: "poppins-r";
+  src: url("{{site_url}}/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "poppins-sb";
+  src: url("{{site_url}}/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "poppins-m";
+  src: url("{{site_url}}/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: "poppins-l";
+  src: url("{{site_url}}/Poppins-Light.ttf");
+}
+
+@font-face {
+  font-family: "poppins-b";
+  src: url("{{site_url}}/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: "poppins-eb";
+  src: url("{{site_url}}/Poppins-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "poppins-t";
+  src: url("{{site_url}}/Poppins-Thin.ttf");
+}
+
+@font-face {
+  font-family: "poppins-el";
+  src: url("{{site_url}}/Poppins-ExtraLight.ttf");
+}
+
+.--c-primary {
+  color: #0200e0;
+}
+
+.--bg-mountain-meadow-dull {
+  background-color: #0ecb812e;
+}
+
+.--c-mirage {
+  color: #131523;
+}
+
+.--c-waterloo {
+  color: #7e84a3;
+}
+
+.--c-deep-sea-green {
+  color: #085f3d;
+}
+
+.--c-trout {
+  color: #525a67;
+}
+
+.--bg-black-squeeze {
+  background-color: #fcfefe;
+}
+
+
+.--padding-5-vertical {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.--padding-15-vertical {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.--padding-15-horizontal {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.--padding-20-horizontal {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.--padding-25 {
+  padding: 25px;
+}
+
+.--padding-top-40 {
+  padding-top: 40px;
+}
+
+.--margin-0 {
+  margin: 0px;
+}
+
+.--margin-top-10 {
+  margin-top: 10px;
+}
+
+.--margin-left-10 {
+  margin-left: 10px;
+}
+
+.--margin-top-15 {
+  margin-top: 15px;
+}
+
+.--margin-bottom-15 {
+  margin-bottom: 15px;
+}
+
+
+.--margin-left-20 {
+  margin-left: 20px;
+}
+
+.--margin-top-30 {
+  margin-top: 30px;
+}
+
+.--margin-top-35 {
+  margin-top: 35px;
+}
+
+.--margin-top-40 {
+  margin-top: 40px;
+}
+
+.--margin-top-50 {
+  margin-top: 50px;
+}
+.--f-poppins-r {
+  font-family: poppins-r;
+}
+
+.--f-poppins-sb {
+  font-family: poppins-sb;
+}
+
+.--f-poppins-m {
+  font-family: poppins-m;
+}
+
+.--fw-500 {
+  font-weight: 500;
+}
+
+.--fs-18 {
+  font-size: 18px;
+}
+
+.--fs-20 {
+  font-size: 20px;
+}
+
+.--fs-22 {
+  font-size: 22px;
+}
+
+.--fs-32 {
+  font-size: 32px;
+}
+.--w-fill {
+  width: -webkit-fill-available;
+}
+
+.--w-100 {
+  width: 100%;
+}
+
+.--h-100 {
+  height: 100%;
+}
+
+.--h-50 {
+  height: 50%;
+}
+.--d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.--d-grid {
+  display: -ms-grid !important;
+  display: grid !important;
+}
+
+.--justify-content-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.--justify-content-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.--align-items-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.--position-relative {
+  position: relative;
+}
+
+.--position-absolute {
+  position: absolute;
+}
+
+.--border-1 {
+  border: 1px solid #d7dbec;
+}
+
+.--border-radius-10 {
+  border-radius: 10px;
+}
+
+.--border-radius-50 {
+  border-radius: 50px;
+}
+
+.--border-danger {
+  border-color: #f6465d;
+}
+
+.--border-mountain-meadow {
+  border-color: #0ecb81;
+}
+.--text-uppercase {
+  text-transform: uppercase;
+}
+.text-truncate{
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.wp-break-all{
+  word-break: break-all;
+}
+    </style>
+</head>
+
+<body class="--margin-0 --position-relative --f-poppins-r --fs-18">
+
+    <div class="--position-absolute" style="top: 0px; right: 0px; width: 254px;">
+        <img src="{{site_url}}/top-illustration.png" class="--w-100" alt="">
+    </div>
+
+    <div class="container-fluid --padding-top-40">
+        <img src="{{site_url}}/logo.svg" alt="">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="--d-flex --align-items-center">
+                    <div>
+                        <img src="{{site_url}}/building.svg" alt="">
+                    </div>
+                    <div class="--margin-left-10 --c-trout --fs-20">
+                        P2P Transfers
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="--text-uppercase --fs-20 --c-waterloo">
+                    ID # <span class="--c-mirage --f-poppins-sb">{{queueNumber}}</span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="--d-flex --justify-content-center">
+                    <div
+                        class="--d-flex --align-items-center --bg-mountain-meadow-dull --c-deep-sea-green --padding-5-vertical --padding-15-horizontal --border-radius-50 --f-poppins-m">
+                        {{category}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-10">
+                <div class="--d-flex --justify-content-center">
+                    <div class="--c-waterloo --f-poppins-m">
+                        Date
+                        <span class="--c-mirage">{{date}}</span>
+                        <span class="--c-mirage">-</span>
+                        <span class="--c-mirage">{{time}}</span>
+                        <!-- <span class="--c-mirage">pm</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-15">
+                <div class="--d-flex --justify-content-center">
+                    <div class="--fs-32 --c-primary --f-poppins-sb ">
+                        P2P Area Transfer Receipt
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-15">
+                <div class="--d-flex --justify-content-center">
+                    <div class="--fs-18 --f-poppins-m --fw-500 --c-deep-sea-green --text-uppercase">
+                      AREA TRANSFERRED SUCCESSFULLY
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-50 --margin-bottom-15">
+                <div class="--text-uppercase --c-waterloo --f-poppins-m --fs-18">
+                    Transfer Details
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="--d-grid --padding-25 --bg-black-squeeze --border-radius-10 --border-1"
+                    style="grid-template-columns: 2fr 1fr 1fr;">
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 44px;">
+                            <img src="{{propertyLogo}}" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-20">
+                            <div class="--fs-22 --f-poppins-sb --c-mirage">{{propertyName}}</div>
+                            <div class="--c-waterloo --fs-18">
+                                <span>{{roundName}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="--c-primary --fs-20 --f-poppins-sb">Area Transferred</div>
+                        <div class="--f-poppins-m --fs-20 --c-mirage">
+                            <span>{{areaPledged}}</span> sq. ft.
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="--c-primary --fs-20 --f-poppins-sb">Current Worth</div>
+                        <div class="--f-poppins-m --fs-20 --c-mirage">
+                            <span>{{currentWorth}}</span> PKR
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 --margin-top-50 --margin-bottom-15">
+                <div class="--text-uppercase --c-waterloo --f-poppins-m --fs-18">
+                    Users
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 --margin-top-15">
+                <div class="--d-grid" style="grid-template-columns: 45% 10% 45%;">
+
+                    <div
+                        class="--border-danger --border-1 --padding-20-horizontal --padding-15-vertical --border-radius-10">
+                        <div class="--d-flex --align-items-center" style="    width: 100%;overflow: hidden;">
+                            <div style="width: 60px;min-width: 60px">
+                                <img src="{{site_url}}/user-round.svg" class="--w-100" alt="">
+                            </div>
+                            <div class="--margin-left-10" style="    width: 100%;overflow: hidden;">
+                                <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                  {{sellerName}}
+                                </div>
+                                <div class="--c-mirage --fs-20 --f-poppins-m wp-break-all">
+                                    <span>{{sellerEmail}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="--d-flex --align-items-center --justify-content-between">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                DAO-ID
+                            </div>
+                            <div class="--c-mirage --fs-18 --f-poppins-m">
+                                <span>DAO-{{sellerID}}</span>
+                            </div>
+                        </div>
+                        <div class="--d-flex --align-items-center --justify-content-between --margin-top-15">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                Wallet Address
+                            </div>
+                            <div class="--c-mirage --fs-18 --f-poppins-m">
+                                <span>{{sellerWalletAddress}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="--d-flex --align-items-center --justify-content-center">
+                        <div>
+                            <img src="{{site_url}}/arrow.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div
+                        class="--border-mountain-meadow --border-1 --padding-20-horizontal --padding-15-vertical --border-radius-10">
+                        <div class="--d-flex --align-items-center" style="    width: 100%;overflow: hidden;">
+                          <div style="width: 60px;min-width: 60px">
+                              <img src="{{site_url}}/user-round.svg" class="--w-100" alt="">
+                          </div>
+                          <div class="--margin-left-10" style="    width: 100%;overflow: hidden;">
+                              <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                {{buyerName}}
+                              </div>
+                              <div class="--c-mirage --fs-20 --f-poppins-m wp-break-all">
+                                  <span>{{buyerEmail}}</span>
+                              </div>
+                          </div>
+                      </div>
+                        <hr>
+                        <div class="--d-flex --align-items-center --justify-content-between">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                DAO-ID
+                            </div>
+                            <div class="--c-mirage --fs-18 --f-poppins-m">
+                                <span>DAO-{{buyerID}}</span>
+                            </div>
+                        </div>
+                        <div class="--d-flex --align-items-center --justify-content-between --margin-top-15">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                Wallet Address
+                            </div>
+                            <div class="--c-mirage --fs-18 --f-poppins-m">
+                                <span>{{buyerWalletAddress}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 --margin-top-50">
+                <div class="--text-uppercase --c-waterloo --f-poppins-m --fs-18">
+                    blockchain tracking details
+                </div>
+            </div>
+
+            <div class="col-xs-12 --margin-top-15">
+                <div class="--border-1 --padding-20-horizontal --padding-15-vertical --border-radius-10 --d-flex --align-items-center">
+
+                    <div>
+                        <img src="{{qrImage}}" alt="">
+                        <!-- <img src="{{site_url}}/qr-code.png" alt=""> -->
+                    </div>
+
+                    <div class="--h-100 --w-fill --padding-15-horizontal">
+                        <div>
+                            <div class="--h-50 --f-poppins-sb">
+                                Scan this to get redirected to your transaction on blockchain platform.
+                            </div>
+                            <hr>
+                            <div class="--h-50">
+                                <div style="flex-direction: column;" class="--d-flex  --justify-content-between">
+                                    <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                        transaction-ID
+                                    </div>
+                                    <div class="--c-mirage --fs-18 --f-poppins-m">
+                                        <!-- <span> -->
+                                          {{blockchainReference}}
+                                        <!-- </span> -->
+                                    </div>
+                                </div>
+                                <!-- <div class="--d-flex --align-items-center --justify-content-between --margin-top-15">
+                                    <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                        Wallet Address
+                                    </div>
+                                    <div class="--c-mirage --fs-18 --f-poppins-m">
+                                        <span>{{buyerWalletAddress}}</span>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 " style="margin-top: 150px;">
+                <hr class="--margin-0">
+            </div>
+            <div class="col-xs-12 --margin-top-30">
+                <div>
+                    <div class="--c-primary --f-poppins-sb --fs-20">
+                        Have a question or need further clarification?
+                    </div>
+                    <div class="--f-poppins-r --fs-18 --c-waterloo">
+                        Feel free to talk to your dedicated sales representative
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-35">
+                <div class="--d-grid" style="grid-template-columns: 33% 33% 33%;">
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 60px;">
+                            <img src="{{site_url}}/user-round.svg" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-10">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                Sales agent
+                            </div>
+                            <div class="--c-mirage --fs-20 --f-poppins-m">
+                                <span>Haseeb Mirza</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 60px;">
+                            <img src="{{site_url}}/phone-round.svg" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-10">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                Phone number
+                            </div>
+                            <div class="--c-mirage --fs-20 --f-poppins-m">
+                                <span>+92 300 1234567</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 60px;">
+                            <img src="{{site_url}}/email-round.svg" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-10">
+                            <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                                Email
+                            </div>
+                            <div class="--c-mirage --fs-20 --f-poppins-m">
+                                <span>irfan@daoproptech.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-40">
+                <hr class="--margin-0">
+            </div>
+            <div class="col-xs-12 --margin-top-30">
+                <div class="--d-flex --justify-content-between">
+                    <div>
+                        <div class="--c-waterloo --fs-18 --f-poppins-m --text-uppercase">
+                            Sales agent
+                        </div>
+                        <div class="--d-grid --margin-top-15" style="grid-template-columns: 50% 50%; grid-gap: 15px;">
+                            <div class="--d-flex">
+                                <img src="{{site_url}}/facebook.svg" alt="">
+                                <span class="--margin-left-10">DAOProptech</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}/linkedin.svg" alt="">
+                                <span class="--margin-left-10">daoproptech</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}/instagram.svg" alt="">
+                                <span class="--margin-left-10">dao_proptech</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}/youtube.svg" alt="">
+                                <span class="--margin-left-10">c/daoproptech</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="--c-waterloo --fs-18 --f-poppins-m">
+                            DAOProptech
+                        </div>
+                        <div class="--d-grid --margin-top-15" style="grid-template-columns: 100%; grid-gap: 15px;">
+                            <div class="--d-flex">
+                                <img src="{{site_url}}/phone.svg" alt="">
+                                <span class="--margin-left-10">+92 314 326 7767</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}/globe.svg" alt="">
+                                <span class="--margin-left-10">daoproptech.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="--margin-top-40">
+        <img src="{{site_url}}/bottom-illustration.svg" class="--w-100" alt="">
+    </div>
+
+</body>
+
+</html>

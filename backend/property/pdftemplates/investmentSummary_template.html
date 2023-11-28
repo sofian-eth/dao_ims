@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      
+      @page  {
+        margin:20px 0 0px 0;
+        size: letter; /*or width x height 150mm 50mm*/
+        /* content: element(footer)  */
+        }
+        @media print{
+        body {
+            /* font-family: 'Inter', sans-serif; */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            /* background-image: url('{{site_url}}/footer-graphic.svg');background-repeat:repeat-x;background-size: auto;background-position: bottom; */
+        }
+        table tr,div {page-break-inside: avoid}
+        .w-full{
+            width: 100%;padding:20px
+        }
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .arrow-direction {
+            display: block;
+            position: relative;
+            width: 50%;
+            margin: 0 auto;
+            left: -8px;
+        }
+
+        .arrow-direction:after,
+        .arrow-direction:before {
+            content: "";
+            display: block;
+            position: absolute;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .arrow-direction:before {
+            left: 7em;
+            top: 1px;
+            width: 1em;
+            height: 1em;
+            transform-origin: 50% 50%;
+            transform: translate(0, -0.5em) rotate(45deg);
+            box-shadow: inset -0.2em 0.2em 0 0 red;
+            border-radius: 0 0.15em 0 0;
+        }
+
+        .arrow-direction:after {
+            left: 0;
+            width: 8em;
+            height: 0.2em;
+        }
+
+        .arrow-direction.pending:before {
+            box-shadow: inset -0.2em 0.2em 0 0 #c46300;
+        }
+
+        .arrow-direction.pending:after {
+            background-color: #c46300;
+        }
+
+
+        .new-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            height: 24px;
+            border: 1px solid transparent;
+            padding: 0px 8px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .new-pill.pill-warning {
+            background: #FFDFCE;
+            border-color: #FFDFCE;
+            color: #C46300;
+        }
+
+        .new-pill.pill-secondary {
+            background: #DCDDF7;
+            border-color: #DCDDF7;
+            color: #023958;
+        }
+        .tbl_basic {
+	 margin-bottom: 0;
+     border-collapse: collapse;
+     width: 100%;
+     /* border: 1px solid #d7dbec; */
+}
+ .tbl_basic th, .tbl_basic td {
+	 vertical-align: middle !important;
+	 border: none !important;
+	 padding: 0 10px !important;
+     text-align: left;
+}
+ .tbl_basic thead tr {
+	 height: 45px !important;
+	 border-bottom: 1px solid #d7dbec;
+}
+.tbl_basic tfoot tr {
+	 height: 45px !important;
+     border-bottom: 1px solid #d7dbec;
+}
+.tbl_basic tfoot tr td {
+	 border: none;
+     font-size: 14px;
+     color: #707A8A;
+     font-weight: unset;
+     font-weight: 500;
+}
+ .tbl_basic thead tr th {
+	 border: none;
+     font-size: 14px;
+     color: #707A8A;
+     font-weight: unset;
+     font-weight: 500;
+}
+ .tbl_basic thead tr th span {
+	 font-size: 12px;
+}
+ .tbl_basic thead.th-uppercase {
+	 text-transform: uppercase;
+}
+ .tbl_basic thead.th-uppercase + tbody .mbl-th {
+	 text-transform: uppercase;
+}
+ .tbl_basic tbody tr {
+	 height: 50px;
+}
+.tbl_basic tbody tr:nth-child(odd){
+    /* background: #F5F6F9 */
+}
+.tbl_basic tfoot tr{
+    background: #F5F6F9;
+}
+ .tbl_basic tbody tr:not(:last-of-type) {
+	 border-bottom: 1px solid #d7dbec;
+}
+ .tbl_basic tbody tr td {
+	 font-size: 16px;
+	 color: #131523;
+}
+ .tbl_basic tbody tr td .value {
+	 font-size: 14px;
+	 color: #131523;
+}
+ .tbl_basic tbody tr td .const {
+	 font-size: 12px;
+	 color: #707a8a;
+	 margin-left: 3px;
+}
+ .tbl_basic tbody tr:hover {
+	 background: #eeeff8;
+}
+.disclaimer{
+  padding: 0;
+  margin: 0;
+  color: #1C1C1C;
+  padding-left: 20px;
+ 
+}
+.disclaimer li{
+    margin-bottom: 10px;
+}
+.disclaimer li::marker{
+    color: #1C1C1C;
+    font-size: 14px;
+  }
+  .investment-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+.investment-breakdown > div {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+/* .investment-breakdown > div:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.investment-breakdown > div:last-of-type {
+  border-radius: 0 5px 5px 0;
+} */
+.investment-breakdown > div p:last-of-type {
+  flex-grow: 1;
+  text-align: right;
+}
+.investment-breakdown .UD {
+  background: #9B4B1B;
+}
+.investment-breakdown .ER {
+  background: #1C5860;
+}
+.investment-breakdown .QB {
+  background: #69BE94;
+}
+.investment-breakdown .BPR {
+  background: #8DD3EC;
+}
+.investment-breakdown .DKV {
+  background: #F6B717;
+}
+.investment-breakdown .AH {
+  background: #007037;
+}
+.text-white{
+    color: #fff;
+}
+.fs-16{
+font-size: 16px;
+}
+.multi-prop-details.investment-overview .mpd-items .mpd-item {
+	 flex-grow: 1;
+	 padding: 15px;
+}
+ .multi-prop-details.investment-overview .mpd-items .mpd-item:nth-child(even) {
+	 background: #f5f6f9;
+}
+.investment-overview {
+    border: 1px solid #d7dbec;
+    border-radius: 5px;
+}
+.investment-overview .mpd-items{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.investment-overview .mpd-items .mpd-item{
+    flex-grow: 1;
+}
+div#footer {
+     display: block; text-align: center;
+   
+    position: fixed;
+      width: 100%;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+   
+}
+div#footer img{
+    height: 26px;
+        border: 0;
+      padding-top: 10px;
+   
+}
+.d-flex{
+    display: flex;
+}
+.justify-content-center{ justify-content: space-between;}
+.align-items-center{align-items: center;}
+.gap-5{gap: 5px;}
+}
+    </style>
+</head>
+
+<body >
+    <table class="w-full">
+        <tbody>
+            <tr>
+                <td style="padding-bottom: 40px;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <img src="{{site_url}}/DAO-proptech-logo.svg" alt="">  
+                    
+                        <img src="{{site_url}}/graphic-1.svg" alt="">  
+                      </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px; text-align: center">
+                        <p style="color: #0200E0;font-size: 25px;font-weight: 600;">Investment Summary</p>
+                        <p><span style="color:#707A8A">Duration:</span> {{startDuration}} - {{endDuration}}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="padding-bottom: 40px;display: flex;justify-content: space-between;">
+                        <div style="display: flex;flex-direction: column;gap: 5px;">
+                            <div style="display: flex;align-items: center;gap: 5px;">
+                                <p style="color: #707A8A;font-size: 12px;">CUSTOMER NAME:</p>
+                                <p style="color: #131523;font-size: 12px;">{{userName}}</p>
+                            </div>
+                            <div style="display: flex;align-items: center;gap: 5px;">
+                                <p style="color: #707A8A;font-size: 12px;">CUSTOMER ID:</p>
+                                <p style="color: #131523;font-size: 12px;">{{userID}}</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;gap: 5px;">
+                            <div style="display: flex;align-items: center;gap: 5px;">
+                                <p style="color: #707A8A;font-size: 12px;">PHONE:</p>
+                                <p style="color: #131523;font-size: 12px;">{{userPhone}}</p>
+                            </div>
+                            <div style="display: flex;align-items: center;gap: 5px;">
+                                <p style="color: #707A8A;font-size: 12px;">EMAIL:</p>
+                                <p style="color: #131523;font-size: 12px;">{{userEmail}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px">
+                        <p style="color: #0200E0;font-weight: 400;font-size: 18px; margin-bottom: 5px;">Investment Overview</p>
+                        <div class="multi-prop-details investment-overview" style="margin-bottom: 20px;">
+                            <div class="mpd-items">
+                                <div class="mpd-item icon">
+                                    <div>
+                                        <div class="icon"><i class="fas fa-check-square" style="color: #65D3C7;"></i></div>
+                                        <div class="title" style="color: #707A8A;font-size: 12px;">AMOUNT INVESTED</div>
+                                        <div class="value" style="color: #313844;font-size: 12px;font-weight: 500;">{{amountInvested}} 
+                                            <!-- <span style="color: #65D3C7;padding: 0 2px;">Lac</span> -->
+                                            <sup style="font-weight:400 ;">PKR</sup></div>
+                                    </div>    
+                                </div>
+                                <div class="mpd-item icon">
+                                    <div>
+                                        <div class="icon"><i class="fas fa-caret-square-up" style="color: #72BB53;"></i></div>
+                                        <div class="title" style="color: #707A8A;font-size: 12px;">INVESTMENT VALUE</div>
+                                        <div class="value" style="color: #313844;font-size: 12px;font-weight: 500;">{{currentValue}} 
+                                            <!-- <span style="color: #65D3C7;padding: 0 2px;">Lac</span> -->
+                                            <sup style="font-weight:400 ;">PKR</sup>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="mpd-item icon">
+                                    <div>
+                                        <div class="icon"><i class="fas fa-caret-square-up" style="color:#0A955E"></i></div>
+                                        <div class="title" style="color: #707A8A;font-size: 12px;">OVERALL INCREASE</div>
+                                        <div class="value" style="color: #313844;font-size: 12px;font-weight: 500;">{{overallIncrease}} 
+                                            <!-- <span style="color: #65D3C7;padding: 0 2px;">Lac</span> -->
+                                            <sup style="font-weight:400 ;">PKR</sup>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="mpd-item icon">
+                                    <div>
+                                        <div class="icon"><i class="fas fa-arrow-circle-up" style="color:#0A955E"></i></div>
+
+                                        <div class="title" style="color: #707A8A;font-size: 12px;">PERCENTAGE CHANGE</div>
+                                        <div class="value" style="color: #313844;font-size: 12px;font-weight: 500;">{{percentageChange}} 
+                                            <sup style="color:#707A8A ;">%</sup>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table tbl_basic mb-3 text-nowrap" style="font-size: 12px; margin-top: 20px;margin-bottom: 20px;">
+                            <thead style="background: #F5F6F9;">
+                                <tr>
+                                    <th style="font-size: 10px;">PROJECT</th>
+                                    <th style="font-size: 10px;">DEMARC. (sq. ft.)</th>
+                                    <th style="font-size: 10px;">NON-DEMARC. (sq. ft.)</th>
+                                    <th style="font-size: 10px;">TOTAL AREA (sq. ft.) </th>
+                                    <th style="font-size: 10px;">AMOUNT INVEST. (PKR)</th>
+                                    <th style="font-size: 10px;">WITHDRAWN (PKR)</th>
+                                    <th style="font-size: 10px;">CUR. VALUE (PKR)</th>
+                                    <th style="font-size: 10px;">GAIN/LOSS (PKR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each propertyListings}}
+                                <tr>
+                                    <td style="font-size: 12px;">{{this.propertyName}}</td>
+                                    <td style="font-size: 12px;">{{this.totalDemarcatedArea}}</td>  
+                                    <td style="font-size: 12px;">{{this.nonDemarcatedArea}}</td>                                  
+                                    <td style="font-size: 12px;">{{this.totalArea}}</td>
+                                    <td style="font-size: 12px;">{{this.totalInvestedAmount}}</td>
+                                    <td style="font-size: 12px;">{{this.totalWithdraw}}</td>
+                                    <td style="font-size: 12px;">{{this.currentValue}}</td>
+                                    <td style="font-size: 12px;">{{this.gainLoss}}</td>
+                                </tr>
+                                {{/each}}
+                             
+                               
+                             
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" style="font-size: 12px; color: #707A8A;">TOTAL</td>
+                                    <td style="font-size: 12px; color: #131523">{{totalArea}}</span></td>
+                                    <td style="font-size: 12px; color: #131523">{{amountInvested}}</td>
+                                    <td style="font-size: 12px; color: #131523">{{totalWithdraw}}</td>
+                                    <td style="font-size: 12px; color: #131523">{{currentValue}}</td>
+                                    <td style="font-size: 12px; color: #131523">{{overallIncrease}}</td> 
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px">
+                        <p style="color: #0200E0;font-weight: 400;font-size: 18px; margin-bottom: 5px;">Investment Breakdown</p>
+                        <div class="mb-3 investment-breakdown " style="flex-wrap: nowrap !important; ">
+                            {{#each propertyListings}}
+                                <div class="{{this.propertySymbol}} p-0 gap-5 d-flex align-items-center justify-content-center">
+                                     <div class="gap-5 d-flex align-items-center justify-content-center">
+                                        <img src="{{this.propertyLogo}}" alt="" style="height: 20px;width: 20px;">
+                                        <p class="text text-white fs-10">{{this.propertyName}}</p>
+                                     </div> 
+                                     <p class="text text-white fs-12 font-m">{{this.propertyPrecentage}}%</p>
+                                </div>
+                            {{/each}}
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="margin-bottom: 20px">
+                        <p style="color: #0200E0;font-weight: 400;font-size: 18px; margin-bottom: 5px;">Disclaimer</p>
+                        <div class="" style="background: #EEEFF8;padding: 15px; margin-bottom: 20px;">
+                            <ol class="disclaimer px-3">
+                                <li><p class="text clr-raven" style="font-size:12px">The transaction(s) above have occurred between the project(s) and the investor. DAO Proptech is a platform partner and does not own the project(s) above. </p></li>
+                                <li><p class="text clr-raven" style="font-size:12px">The statement does not constitute a legal document. For establishing ownership, please refer to your Sales Agreement. </p></li>
+                                <li><p class="text clr-raven" style="font-size:12px">The dates represented above are based on the transaction lock-in dates in the system and may differ from the payment date. </p></li>
+                                <li><p class="text clr-raven" style="font-size:12px">This is a system generated document and does not require a signature or stamp.</p></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;">
+                        <p style="display: flex;align-items: center; font-size: 12px "><img src="{{site_url}}/go-green.svg" style="width: 26px; height:26px;"> <span style="margin-left: 6px;">Play your part in saving the planet</span></p>
+                        <p style="font-size: 12px"><span style="color:#707A8A">Generated on:</span> {{currentDate}}</p>
+                    </div>
+                    <div style="background: #EEEFF8;padding: 15px; margin-bottom: 20px; font-size: 12px;">
+                        Replace your paper report with E-Reports, reducing the need for paper printing and carbon footprint of snail mail.
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <!-- <tfoot>
+            <tr>
+                <td><div style="background-image: url('{{site_url}}/footer-graphic.svg');background-repeat:repeat-x;background-size: auto;background-position: bottom;"></div></td>
+            </tr>
+        </tfoot> -->
+    </table>
+    <div id='footer'><img src="{{site_url}}/footer-graphic.svg" /></div>
+
+</body>
+
+</html>

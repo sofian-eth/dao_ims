@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins');
+    </style>
+    <style>
+        * {
+            font-family: 'Poppins' !important;
+        }
+
+        html {
+            font-family: 'Poppins', sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        a {
+            background-color: transparent
+        }
+
+        a:active,
+        a:hover {
+            outline: 0
+        }
+
+        img {
+            border: 0
+        }
+
+        svg:not(:root) {
+            overflow: hidden
+        }
+
+        hr {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            height: 0
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        :after,
+        :before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        html {
+            font-size: 10px;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: none
+        }
+
+        a:focus,
+        a:hover {
+            color: #23527c;
+            text-decoration: underline
+        }
+
+        a:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+
+        img {
+            vertical-align: middle
+        }
+
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #eee
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto
+        }
+
+        @media(min-width:768px) {
+            .container {
+                width: 750px
+            }
+        }
+
+        @media(min-width:992px) {
+            .container {
+                width: 970px
+            }
+        }
+
+        @media(min-width:1200px) {
+            .container {
+                width: 1170px
+            }
+        }
+
+        .container-fluid {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px
+        }
+
+        .col-xs-12,
+        .col-xs-6 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px
+        }
+
+        .col-xs-12,
+        .col-xs-6 {
+            float: left
+        }
+
+        .col-xs-12 {
+            width: 100%
+        }
+
+        .col-xs-6 {
+            width: 50%
+        }
+
+        .container-fluid:after,
+        .container-fluid:before,
+        .container:after,
+        .container:before,
+        .row:after,
+        .row:before {
+            display: table;
+            content: " "
+        }
+
+        .container-fluid:after,
+        .container:after,
+        .row:after {
+            clear: both
+        }
+
+        .container {
+            width: calc(100% - 200px);
+            margin: 0 auto
+        }
+
+        .container-fluid {
+            width: calc(100% - 55px)
+        }
+
+        @font-face {
+            font-family: poppins-r;
+            src: url(fonts/Poppins-Regular.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-sb;
+            src: url(fonts/Poppins-SemiBold.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-m;
+            src: url(fonts/Poppins-Medium.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-l;
+            src: url(fonts/Poppins-Light.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-b;
+            src: url(fonts/Poppins-Bold.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-eb;
+            src: url(fonts/Poppins-ExtraBold.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-t;
+            src: url(fonts/Poppins-Thin.ttf)
+        }
+
+        @font-face {
+            font-family: poppins-el;
+            src: url(fonts/Poppins-ExtraLight.ttf)
+        }
+
+        .--c-primary {
+            color: #0200e0
+        }
+
+        .--c-danger {
+            color: #f6465d
+        }
+
+        .--c-mountain-meadow {
+            color: #0ecb81
+        }
+
+        .--c-mirage {
+            color: #131523
+        }
+
+        .--c-waterloo {
+            color: #7e84a3
+        }
+
+        .--c-trout {
+            color: #525a67
+        }
+
+        .--bg-geyser {
+            background-color: #d9e1e6
+        }
+
+        .--c-astronaut-blue {
+            color: #023958
+        }
+
+        .--bg-black-squeeze {
+            background-color: #fcfefe
+        }
+
+        .--padding-5-vertical {
+            padding-top: 5px;
+            padding-bottom: 5px
+        }
+
+        .--padding-15 {
+            padding: 15px
+        }
+
+        .--padding-15-horizontal {
+            padding-left: 15px;
+            padding-right: 15px
+        }
+
+        .--padding-20 {
+            padding: 20px
+        }
+
+        .--padding-25 {
+            padding: 25px
+        }
+
+        .--padding-top-40 {
+            padding-top: 40px
+        }
+
+        .--margin-0 {
+            margin: 0
+        }
+
+        .--margin-10-vertical {
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+
+        .--margin-top-10 {
+            margin-top: 5px
+        }
+
+        .--margin-left-10 {
+            margin-left: 10px
+        }
+
+        .--margin-top-15 {
+            margin-top: 7px
+        }
+
+        .--margin-left-15 {
+            margin-left: 15px
+        }
+
+        .--margin-20-vertical {
+            margin-top: 20px;
+            margin-bottom: 20px
+        }
+
+        .--margin-top-20 {
+            margin-top: 10px
+        }
+
+        .--margin-left-20 {
+            margin-left: 20px
+        }
+
+        .--margin-top-30 {
+            margin-top: 15px
+        }
+
+        .--margin-top-35 {
+            margin-top: 17px
+        }
+
+        .--margin-top-40 {
+            margin-top: 40px
+        }
+
+        .--margin-50-horizontal {
+            margin-left: 50px;
+            margin-right: 50px
+        }
+
+        .--margin-top-50 {
+            margin-top: 25px
+        }
+
+        .--fw-400 {
+            font-family: poppins-r
+        }
+
+        .--fw-600 {
+            font-family: poppins-sb
+        }
+
+        .--fw-500 {
+            font-family: poppins-m
+        }
+
+        .--fw-700 {
+            font-family: poppins-b
+        }
+
+        .--text-right {
+            text-align: right
+        }
+
+        .--fs-14 {
+            font-size: 14px
+        }
+
+        .--fs-16 {
+            font-size: 16px
+        }
+
+        .--fs-18 {
+            font-size: 18px
+        }
+
+        .--fs-20 {
+            font-size: 20px
+        }
+
+        .--fs-22 {
+            font-size: 22px
+        }
+
+        .--fs-24 {
+            font-size: 24px
+        }
+
+        .--fs-32 {
+            font-size: 32px
+        }
+
+        .--w-100 {
+            width: 100%
+        }
+
+        .--h-100 {
+            height: 100%
+        }
+
+        .--d-flex {
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important
+        }
+
+        .--d-grid {
+            display: -ms-grid !important;
+            display: grid !important
+        }
+
+        .--justify-content-between {
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .--justify-content-center {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+        .--align-items-center {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .--position-relative {
+            position: relative
+        }
+
+        .--position-absolute {
+            position: absolute
+        }
+
+        .--border-1 {
+            border: 1px solid #d7dbec
+        }
+
+        .--border-right-2 {
+            border-right: 2px solid #d7dbec
+        }
+
+        .--border-radius-10 {
+            border-radius: 10px
+        }
+
+        .--border-radius-50 {
+            border-radius: 50px
+        }
+
+        .--border-danger {
+            border-color: #f6465d
+        }
+
+        .--text-uppercase {
+            text-transform: uppercase
+        }
+
+        .--fw-100 {
+            font-weight: 100;
+        }
+
+        .--fw-200 {
+            font-weight: 200;
+        }
+
+        .--fw-300 {
+            font-weight: 300;
+        }
+
+        .--fw-400 {
+            font-weight: 400;
+        }
+
+        .--fw-500 {
+            font-weight: 500;
+        }
+
+        .--fw-600 {
+            font-weight: 600;
+        }
+
+        .--fw-700 {
+            font-weight: 700;
+        }
+
+        .--fw-800 {
+            font-weight: 800;
+        }
+
+        .--fw-900 {
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body class="--margin-0 --position-relative --fw-400 --fs-18" style="width: 1080px;">
+
+    <div class="--position-absolute" style="top: 0px; right: 0px; width: 254px;">
+        <img src="{{site_url}}top-illustration.png" class="--w-100" alt="">
+    </div>
+
+    <div class="container-fluid --padding-top-40">
+        <img src="{{site_url}}logo.svg" alt="">
+    </div>
+
+    <div class="container --padding-top-40">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="--d-flex --align-items-center">
+                    <div>
+                        <img src="{{site_url}}building.svg" alt="">
+                    </div>
+                    <div class="--margin-left-10 --c-trout --fs-20">
+                        Marketplace
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="--text-uppercase --fs-20 --c-waterloo">
+                    Deal # <span class="--c-mirage --fw-600">{{dealId}}</span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="--d-flex --justify-content-center">
+                    <div style="text-transform: capitalize;"
+                        class="--d-flex --align-items-center --bg-geyser --c-astronaut-blue --padding-5-vertical --padding-15-horizontal --border-radius-50 --fw-500">
+                        {{property.category}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-10">
+                <div class="--d-flex --justify-content-center">
+                    <div class="--c-waterloo --fw-500">
+                        Downloaded on
+                        <span class="--c-mirage">{{now}}</span>
+                        <!-- <span class="--c-mirage">-</span>
+                        <span class="--c-mirage">03:37</span>
+                        <span class="--c-mirage">pm</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-15">
+                <div class="--d-flex --justify-content-center">
+                    <div class="--fs-32 --c-primary --fw-600 ">
+                        Payment Details
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-15">
+                <div class="row --margin-50-horizontal">
+                    <div class="col-xs-6 --border-right-2">
+                        <div class="--c-waterloo --text-uppercase --fw-600">
+                            {{#if isSeller}}
+                            <span>You</span> (Seller)
+                            {{/if}}
+                            {{#if isBuyer}}
+                            Seller
+                            {{/if}}
+                        </div>
+                        <div class="--fs-20 --c-waterloo --fw-500">
+                            <span class="--c-primary --fw-600">{{seller.nickName}}</span>
+                            <span class="--text-uppercase">Membership ID</span>
+                            <span class="--c-mirage --fw-600 --text-uppercase">DAO-{{seller.id}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="--c-waterloo --text-uppercase --fw-600">
+                            {{#if isBuyer}}
+                            <span>You</span> (Buyer)
+                            {{/if}}
+                            {{#if isSeller}}
+                            Buyer
+                            {{/if}}
+                        </div>
+                        <div class="--fs-20 --c-waterloo --fw-500">
+                            <span class="--c-primary --fw-600">{{buyer.nickName}}</span>
+                            <span class="--text-uppercase">Membership ID</span>
+                            <span class="--c-mirage --fw-600 --text-uppercase">DAO-{{buyer.id}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-50">
+                <div class="--text-uppercase --fs-20 --c-waterloo">
+                    Deal Details
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="--d-grid --padding-25 --bg-black-squeeze --border-radius-10 --border-1"
+                    style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 44px;">
+                            <img src="{{property.propertyLogo}}" class="--w-100" alt="">
+                        </div>
+                        <div class="--fs-22 --fw-600 --c-mirage --margin-left-20">{{property.name}}</div>
+                    </div>
+
+                    <div>
+                        <div class="--c-primary --fs-20 --fw-600">Price / Sq. ft.</div>
+                        <div class="--fw-500 --fs-20 --c-mirage">
+                            <span>{{pricePerSqFt}}</span> PKR
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="--c-primary --fs-20 --fw-600">Area</div>
+                        <div class="--fw-500 --fs-20 --c-mirage">
+                            <span>{{areaPurchased}}</span> sq. ft.
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="--c-primary --fs-20 --fw-600">Total Price</div>
+                        <div class="--fw-500 --fs-20 --c-mirage">
+                            <span>{{amount.total}}</span> PKR
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-10">
+                <div class="--fs-18 --fw-500 --c-waterloo --text-right">
+                    Deal created on: {{createdAt}}
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-50">
+                <div class="--padding-25 --bg-black-squeeze --border-radius-10 --border-1">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="--c-primary --fs-20 --fw-600">Bank Accounts</div>
+                            {{#each banks}}
+                            <div class="--border-1 --border-radius-10 --padding-15 --margin-top-15">
+                                <div class="--d-flex --align-items-center">
+                                    <div>
+                                        <img src="{{../portalurl}}{{svg}}" alt="">
+                                    </div>
+                                    <div class="--margin-left-15">
+                                        <div class="--c-waterloo --fw-500">{{this.bankName}}</div>
+                                        <div class="--c-mirage --fw-500">
+                                            {{this.accountNumber}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="--d-flex --justify-content-between">
+                                    <div class="--fs-18 --fw-500 --c-waterloo">
+                                        Account Title
+                                    </div>
+                                    <div class="--fs-18 --text-right --c-mirage --fw-400">
+                                        <span>{{this.accountTitle}}</span>
+                                    </div>
+                                </div>
+                                <div class="--d-flex --justify-content-between">
+                                    <div class="--fs-18 --fw-500 --c-waterloo">
+                                        Branch
+                                    </div>
+                                    <div class="--fs-18 --text-right --c-mirage --fw-400">
+                                        <span>{{this.branch}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                            <!-- <div class="--border-1 --border-radius-10 --padding-15 --margin-top-15">
+                                <div class="--d-flex --align-items-center">
+                                    <div>
+                                        <img src="{{site_url}}bank.svg" alt="">
+                                    </div>
+                                    <div class="--margin-left-15">
+                                        <div class="--c-waterloo --fw-500">JS Bank</div>
+                                        <div class="--c-mirage --fw-500">
+                                            060228 20301 714130769
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="--d-flex --justify-content-between">
+                                    <div class="--fs-18 --fw-500 --c-waterloo">
+                                        Account Title
+                                    </div>
+                                    <div class="--fs-18 --text-right --c-mirage --fw-400">
+                                        <span>Elements Residencia LLP</span>
+                                    </div>
+                                </div>
+                                <div class="--d-flex --justify-content-between">
+                                    <div class="--fs-18 --fw-500 --c-waterloo">
+                                        Branch
+                                    </div>
+                                    <div class="--fs-18 --text-right --c-mirage --fw-400">
+                                        <span>Phase 7, Bahria Town</span>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="col-xs-6 --h-100">
+                            <div class="--d-flex --align-items-center --w-100 --h-100">
+                                <div class="--w-100">
+                                    <div class="--c-primary --fs-20 --fw-600">Amount</div>
+                                    <div class="--margin-top-50"></div>
+                                    <div class="--d-flex --justify-content-between">
+                                        <div class="--fs-18 --fw-500 --c-waterloo">
+                                            Security Amount
+                                        </div>
+                                        <div class="--fs-18 --text-right --c-waterloo --fw-400">
+                                            <span class="--c-mirage">{{token.total}}</span> PKR
+                                        </div>
+                                    </div>
+                                    <div class="--d-flex --justify-content-between --margin-top-20">
+                                        <div class="--fs-18 --fw-500 --c-waterloo">
+                                            Amount Paid
+                                        </div>
+                                        <div class="--fs-18 --text-right --fw-400">
+                                            <span class="--c-mountain-meadow">{{token.paid}} PKR</span>
+                                        </div>
+                                    </div>
+                                    <div class="--d-flex --justify-content-between --margin-top-20">
+                                        <div class="--fs-18 --fw-500 --c-waterloo">
+                                            Pending Amount
+                                        </div>
+                                        <div class="--fs-18 --text-right --c-waterloo --fw-400">
+                                            <span class="--c-mirage">{{token.remaining}}</span> PKR
+                                        </div>
+                                    </div>
+                                    <hr class="--margin-20-vertical">
+                                    <div class="--d-flex --justify-content-between">
+                                        <div class="--fs-18 --fw-500 --c-waterloo">
+                                            Total Amount to Pay
+                                        </div>
+                                        <div class="--fs-18 --text-right --c-waterloo --fw-400">
+                                            <span class="--c-danger --fs-24 --fw-600">{{amount.total}}</span> PKR
+                                        </div>
+                                    </div>
+                                    <div class="--d-flex --justify-content-between --margin-top-20">
+                                        <div class="--fs-18 --fw-500 --c-waterloo">
+                                            Total Amount Paid
+                                        </div>
+                                        <div class="--fs-18 --text-right --fw-400">
+                                            <span class="--c-mountain-meadow">{{amount.paid}} PKR</span>
+                                        </div>
+                                    </div>
+                                    {{#if isFinal}}
+                                    <div
+                                        class="--border-1 --border-danger --border-radius-10 --padding-20 --margin-top-40">
+                                        <div class="--d-flex --align-items-center">
+                                            <div>
+                                                <div class="--d-flex --align-items-center">
+                                                    <div>
+                                                        <img src="{{site_url}}info-round.svg" alt="">
+                                                    </div>
+                                                    <div class="--fs-16 --fw-700 --c-danger --margin-left-10">
+                                                        Time left to pay  amount
+                                                    </div>
+                                                </div>
+                                                <div class="--fs-20 --fw-400 --c-mirage --margin-10-vertical">
+                                                    <span>{{timeLeftToPay}}</span>
+                                                    <span class="--c-waterloo --fs-16">
+                                                        ({{timeLeftDate}})
+                                                    </span>
+                                                </div>
+                                                <div class="--fs-14 --fw-600 --c-waterloo">
+                                                    Calculated from time of download/print
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-15">
+                <div class="--text-right --c-danger --fs-16 --fw-500">
+                    Next Steps: Upload transaction proof in session when transferred
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-40">
+                <hr class="--margin-0">
+            </div>
+            <div class="col-xs-12 --margin-top-30">
+                <div>
+                    <div class="--c-primary --fw-600 --fs-20">
+                        Have a question or need further clarification?
+                    </div>
+                    <div class="--fw-400 --fs-18 --c-waterloo">
+                        Feel free to talk to your dedicated sales representative
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-35">
+                <div class="--d-grid" style="grid-template-columns: 33% 33% 33%;">
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 60px;">
+                            <img src="{{site_url}}user-round.svg" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-10">
+                            <div class="--c-waterloo --fs-18 --fw-500 --text-uppercase">
+                                Sales agent
+                            </div>
+                            <div class="--c-mirage --fs-20 --fw-500">
+                                <span>Haseeb Mirza</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 60px;">
+                            <img src="{{site_url}}phone-round.svg" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-10">
+                            <div class="--c-waterloo --fs-18 --fw-500 --text-uppercase">
+                                Phone number
+                            </div>
+                            <div class="--c-mirage --fs-20 --fw-500">
+                                <span>+92 300 1234567</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="--d-flex --align-items-center">
+                        <div style="width: 60px;">
+                            <img src="{{site_url}}email-round.svg" class="--w-100" alt="">
+                        </div>
+                        <div class="--margin-left-10">
+                            <div class="--c-waterloo --fs-18 --fw-500 --text-uppercase">
+                                Email
+                            </div>
+                            <div class="--c-mirage --fs-20 --fw-500">
+                                <span>irfan@daoproptech.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 --margin-top-40">
+                <hr class="--margin-0">
+            </div>
+            <div class="col-xs-12 --margin-top-30">
+                <div class="--d-flex --justify-content-between">
+                    <div>
+                        <div class="--c-waterloo --fs-18 --fw-500 --text-uppercase">
+                            Sales agent
+                        </div>
+                        <div class="--d-grid --margin-top-15" style="grid-template-columns: 50% 50%; grid-gap: 15px;">
+                            <div class="--d-flex">
+                                <img src="{{site_url}}facebook.svg" alt="">
+                                <span class="--margin-left-10">DAOProptech</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}linkedin.svg" alt="">
+                                <span class="--margin-left-10">daoproptech</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}instagram.svg" alt="">
+                                <span class="--margin-left-10">dao_proptech</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}youtube.svg" alt="">
+                                <span class="--margin-left-10">c/daoproptech</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="--c-waterloo --fs-18 --fw-500">
+                            DAOProptech
+                        </div>
+                        <div class="--d-grid --margin-top-15" style="grid-template-columns: 100%; grid-gap: 15px;">
+                            <div class="--d-flex">
+                                <img src="{{site_url}}phone.svg" alt="">
+                                <span class="--margin-left-10">+92 314 326 7767</span>
+                            </div>
+                            <div class="--d-flex">
+                                <img src="{{site_url}}globe.svg" alt="">
+                                <span class="--margin-left-10">daoproptech.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="--margin-top-40" style="position: fixed;bottom: 0;left:0;">
+        <img src="{{site_url}}bottom-illustration.svg" class="--w-100" alt="">
+    </div>
+
+</body>
+
+</html>
